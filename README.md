@@ -1,4 +1,5 @@
 finna
 =====
 
-Finna Mobile App
+The web portion
+
