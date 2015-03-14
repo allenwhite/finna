@@ -1,0 +1,10 @@
+[31-Oct-2014 22:00:13 UTC] PHP Notice:  Undefined variable: didFinna in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 42
+[31-Oct-2014 22:00:13 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 42
+[31-Oct-2014 22:04:00 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 48
+[31-Oct-2014 22:04:00 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 48
+[31-Oct-2014 22:05:22 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 48
+[31-Oct-2014 22:05:22 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 48
+[31-Oct-2014 22:05:27 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 48
+[31-Oct-2014 22:05:27 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 48
+[31-Oct-2014 22:06:10 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 48
+[31-Oct-2014 22:06:10 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/chadgoodwin/public_html/finnaRoot/notifications.php on line 48

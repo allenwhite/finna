@@ -1,0 +1,233 @@
+html{
+    margin:0px;
+    padding:0px;
+}
+body{
+    margin:0px;
+    font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    font-size: 13px;
+    padding: 0px;
+}
+.pageHeadTable{
+    /*width:800px;*/
+    width:100%;
+    margin:0px;
+    padding:0px;
+}
+
+#leftLoginLogout{
+    width: 200px;
+    height: 92px;
+    padding-top:85px;
+}
+#rightLoginLogout{
+    width: 200px;
+    height: 92px;
+    text-align: right;
+    padding-top:85px;
+}
+#pageMiddle{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0px;
+}
+/*Everything besides the picture in status*/
+.statusData{
+    margin-left:60px;
+    margin-top:0px;
+    padding-top:3px;
+    margin-right:7px;
+    min-height:70px;
+    font-size: 13px;
+    word-wrap:break-word;
+}
+.statusDateAndDelete{
+    float:right;
+    color:#696969;
+    font-size: 11px;
+}
+.statusAuthor{
+    color:black;
+    text-decoration: none;
+    font-weight: bold;
+}.statusAuthor:visited{
+    color:black;
+    text-decoration: none;
+    font-weight: bold;
+}.statusAuthor:hover{
+    color:black;
+    text-decoration: none;
+    font-weight: bold;
+}.statusAuthor:active{
+    color:black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*index and user styling*/
+a{text-decoration: none;}
+textarea#statustext{
+    width:96%; 
+    height:140px; 
+    border:none;
+    font-size:20px; 
+    resize:none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding:2%;
+}
+div.status_boxes{
+    padding-top:0px; 
+    line-height:1.5em;
+}
+div.status_boxes > div{
+    padding:0px; 
+    border-bottom:rgb(98,200,236) 1px solid;  
+}
+div.status_boxes > button{
+    padding:1.5px; 
+    font-size:10px;
+}
+div.reply_boxes{
+    background:#FDF5E6;
+}
+textarea.replytext{
+    width:96%; 
+    height:140px; 
+    border:none;
+    font-size:20px; 
+    resize:none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding:2%;
+}
+.imfinna{font-size:11px;}
+.replyStatus{font-size:7px; float:right;}
+
+.userpics{
+    width:47px; 
+    height:47px; 
+    margin:2px; 
+    border-radius:6px;
+}
+.userpostpics{
+    width:45px; 
+    height:45px; 
+    border-radius: 5px; 
+    margin:3px; 
+    float:left; 
+    margin-left: 7px;
+    margin-top: 7px;
+}
+
+/*user page styling*/
+div#profile_pic_box{margin-right: auto; margin-left: auto;margin-top:20px; border-radius: 7px; border:rgb(98,200,236) 1px solid; width:70px; height:70px; overflow-x:hidden; overflow-y:hidden;}
+div#profile_pic_box > img{z-index:2000; width:72px; height:72px;}
+
+.statusbutts {
+    padding: 10px;
+    font-size: 10x;
+    font-weight: bold;
+    margin-left: 15px;
+    background: rgb(98,200,236);
+    border:none;
+    color: white;
+    border-radius:7px;
+}
+/*login */
+#loginform{
+    margin-top:24px; 
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;   
+}
+#loginform > div {
+    margin-top: 10px;  
+    margin-bottom: 7px;  
+}
+#loginform > input {
+    width: 90%;
+    padding: 3px;
+    background: #F3F9DD;
+    font-size: 16px;
+    border-radius:14px;
+    border:none;
+    border-color: transparent;
+    text-align: center;
+}
+#loginform > input:focus {
+    outline:0px;
+}
+/*signup*/
+#signupform{
+    margin-top:8px;    
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#signupform > div {
+    margin-top: 7px;
+    margin-bottom: 7px;    
+}
+#signupform > input {
+    padding: 7px;
+    background: #F3F9DD;
+    font-size: 16px;
+    border-radius:14px;
+    border:none;
+    border-color: transparent;
+    text-align: center;
+}
+#signupform > input:focus {
+    outline:0px;
+}
+#phone1,#phone2,#phone3{
+    width:24%;
+}
+#username,#pass1,#pass2{
+    width:90%;
+}
+#nonFeedCrap{
+    padding:7px;
+    padding-bottom: 0px;
+    border-bottom:rgb(98,200,236) 1px solid; 
+}
+.note{
+    margin: 0px;
+    padding:7px;
+    border-bottom:rgb(98,200,236) 1px solid; 
+}
+.oldNote{
+    background:rgb(225,225,225);
+}
+
+.editprofile {
+    margin: 7px;
+}
+
+.editheader {
+    color: rgb(98,200,236);
+}
+
+.edittextbox {
+    background-color:transparent;
+    outline:none;
+    box-shadow:0px;
+    border: 0px none;
+    font-size:20px;
+
+}
+
+.editicons {
+    width:25px;
+}
+

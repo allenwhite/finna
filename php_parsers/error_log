@@ -1,0 +1,8 @@
+[25-Nov-2014 19:18:09 UTC] PHP Fatal error:  Call to undefined function imagecrop() in /home/chadgoodwin/public_html/finnaRoot/php_parsers/photo_system.php on line 80
+[26-Nov-2014 03:57:18 UTC] PHP Fatal error:  Call to undefined function imagecrop() in /home/chadgoodwin/public_html/finnaRoot/php_parsers/photo_system.php on line 80
+[26-Nov-2014 04:38:50 UTC] PHP Fatal error:  Call to undefined function imagecrop() in /home/chadgoodwin/public_html/finnaRoot/php_parsers/photo_system.php on line 80
+[26-Nov-2014 04:40:56 UTC] PHP Fatal error:  Call to undefined function imagecrop() in /home/chadgoodwin/public_html/finnaRoot/php_parsers/photo_system.php on line 80
+[26-Nov-2014 04:46:36 UTC] PHP Fatal error:  Call to undefined function imagecrop() in /home/chadgoodwin/public_html/finnaRoot/php_parsers/photo_system.php on line 80
+[26-Nov-2014 04:49:52 UTC] PHP Fatal error:  Call to undefined function imagecrop() in /home/chadgoodwin/public_html/finnaRoot/php_parsers/photo_system.php on line 80
+[26-Nov-2014 04:56:16 UTC] PHP Fatal error:  Call to undefined function imagecrop() in /home/chadgoodwin/public_html/finnaRoot/php_parsers/photo_system.php on line 80
+[26-Nov-2014 05:11:40 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 10368 bytes) in /home/chadgoodwin/public_html/finnaRoot/php_parsers/photo_system.php on line 22
