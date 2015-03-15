@@ -10,10 +10,28 @@ cd
 
 
 
+GITHUB
+
+git -version
+
 
 
 to push to github:
 
-git add -A
-git commit -m "message "
 
+git add -A
+		track all the files (sometimes you have to do this, sometimes not)
+git commit -m "message detailing the changes you made"
+		commit your changes and add a message so we know what the hell you were thinking when shit goes wrong
+git push origin master
+		push to the master branch
+
+
+
+
+
+to pull from github:
+
+
+git pull origin master
+(may need to merge, press i, type in a message, press esc, type :w, press enter, type :q press enter)
