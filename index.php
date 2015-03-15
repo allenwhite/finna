@@ -30,7 +30,7 @@ if($user_ok != true){
 
 		//bitch try me
 		mysqli_query($db_conx, "UPDATE users SET apnsID='$reg_id' WHERE username='$log_username' LIMIT 1");
-		
+		// type and words
 	}
 }
 ?>
