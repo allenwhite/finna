@@ -182,6 +182,7 @@ if($friend_requests == '' && $notification_list == ''){
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Notifications and Friend Requests</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="style/Avenir.ttc" type='type/css'>
 <link rel="stylesheet" href="style/style.css">
 <style type="text/css">
 div#notesBox{width:100%; margin:0px; padding:0px;}
