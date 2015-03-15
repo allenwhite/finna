@@ -46,3 +46,9 @@ db_conx.php
 androidpushcall.php
 androidpush.php
 iospushcall.php
+*.apk
+*.jks
+*.certSigningRequest
+make_my_tables.php
+make_my_tables_new_oneliners.php
+gcm_server_php/config.php
