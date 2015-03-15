@@ -69,7 +69,7 @@
 		$avatar = $row["avatar"];
 		$userpic = '<img src="user/'.$username.'/'.$avatar.'" alt="'.$username.'" style="float:left; width:50px; height:50px; border-radius:100px;" class="user_pic">';
 		if($avatar == NULL){
-			$userpic = '<img style="float:left; width:50px; height:50px; border-radius:5px;" src="images/avatardefault.jpg" alt="'.$username.'" class="user_pic">';
+			$userpic = '<img style="float:left; width:50px; height:50px; border-radius:100px;" src="images/avatardefault.jpg" alt="'.$username.'" class="user_pic">';
 		}
 		$peeps .= '<div class="person" style="min-height:50px; padding:7px; border-bottom:1px solid rgb(98,200,236);">
 						<a href="user.php?u='.$username.'">'.$userpic.'</a>
