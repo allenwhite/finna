@@ -115,7 +115,7 @@ textarea.replytext{
     width:47px; 
     height:47px; 
     margin:2px; 
-    border-radius:;
+    border-radius:100px;
 }
 .userpostpics{
     width:45px; 
@@ -128,7 +128,7 @@ textarea.replytext{
 }
 
 /*user page styling*/
-div#profile_pic_box{margin-right: auto; margin-left: auto;margin-top:20px; border-radius: 7px; border:rgb(98,200,236) 1px solid; width:70px; height:70px; overflow-x:hidden; overflow-y:hidden;}
+div#profile_pic_box{margin-right: auto; margin-left: auto;margin-top:20px; border-radius: 100px; border:rgb(98,200,236) 1px solid; width:70px; height:70px; overflow-x:hidden; overflow-y:hidden;}
 div#profile_pic_box > img{z-index:2000; width:72px; height:72px;}
 
 .statusbutts {
@@ -209,6 +209,7 @@ div#profile_pic_box > img{z-index:2000; width:72px; height:72px;}
 .oldNote{
     background:rgb(225,225,225);
 }
+
 
 /*Edit prof shib*/
 

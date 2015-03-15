@@ -67,7 +67,7 @@
 		
 		
 		$avatar = $row["avatar"];
-		$userpic = '<img src="user/'.$username.'/'.$avatar.'" alt="'.$username.'" style="float:left; width:50px; height:50px; border-radius:5px;" class="user_pic">';
+		$userpic = '<img src="user/'.$username.'/'.$avatar.'" alt="'.$username.'" style="float:left; width:50px; height:50px; border-radius:100px;" class="user_pic">';
 		if($avatar == NULL){
 			$userpic = '<img style="float:left; width:50px; height:50px; border-radius:5px;" src="images/avatardefault.jpg" alt="'.$username.'" class="user_pic">';
 		}

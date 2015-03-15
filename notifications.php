@@ -88,7 +88,7 @@ while (($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) && ($i < 15)) {
 		$date_time = convert_datetime($date_time); // Convert Date Time
 		$date_time = makeAgo($date_time);
 		
-		$notification_list .= "<div class='note friendrequests' ><a href='user.php?u=".$initiator."'>".$user1pic."</a><a class='seeallfinners' href='index.php#status_".$osid."'><div class='user_info'>$initiator<span class='statusDateAndDelete'>$date_time</span><br />$note</div></a></div>";
+		$notification_list .= "<div class='note friendrequests' ><a href='user.php?u=".$initiator."'>".$user1pic."</a><a class='seeallfinners' href='index.php#status_".$osid."'><div class='user_info'><b>$initiator</b><span class='statusDateAndDelete'>$date_time</span><br />$note</div></a></div>";
 	
 		$i++;
 
@@ -188,9 +188,9 @@ if($friend_requests == '' && $notification_list == ''){
 div#notesBox{width:100%; margin:0px; padding:0px;}
 div#friendReqBox{width:100%; padding:0px;}
 div.friendrequests{min-height:70px; border-bottom:rgb(98,200,236) 1px solid; border-color:rgb(98,200,236); margin-bottom:0px;padding:7px;}
-img.user_pic{float:left; width:50px; height:50px; margin-right:8px; border-radius:5px;}
-img.user_spic{float:left; width:40px; height:40px; margin-right:8px; border-radius:4px;}
-img.user_fpic{width:35px; height:35px; margin-right:6px; border-radius:4px;}
+img.user_pic{float:left; width:50px; height:50px; margin-right:8px; border-radius:100px;}
+img.user_spic{float:left; width:40px; height:40px; margin-right:8px; border-radius:100px;}
+img.user_fpic{width:35px; height:35px; margin-right:6px; border-radius:100px;}
 div.user_info{padding-left:50px; margin-top:0px; font-size:14px;word-wrap:break-word;}
 .friendrequests > button{margin:2px; float:right;}
 .seeallfinners{color:black;}
