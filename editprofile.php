@@ -1,3 +1,5 @@
+<!-- al how did you make this work -->
+
 <?php
 	
 include_once("php_includes/check_login_status.php");
