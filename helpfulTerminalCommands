@@ -1,0 +1,19 @@
+ls
+	lists all the files in your current directory
+cd
+	change to a new directory
+
+	cd ..
+		move up a level (go to the folder that contains where you are now)
+	cd someFolder
+		move into a folder in this directory
+
+
+
+
+
+to push to github:
+
+git add -A
+git commit -m "message "
+
