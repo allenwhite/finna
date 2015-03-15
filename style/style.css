@@ -4,7 +4,7 @@ html{
 }
 body{
     margin:0px;
-    font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "Avenir", "HelveticaNeue", "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
     font-size: 13px;
     padding: 0px;
@@ -36,19 +36,19 @@ body{
 .statusData{
     margin-left:60px;
     margin-top:0px;
-    padding-top:3px;
+    padding-top:2px;
     margin-right:7px;
     min-height:70px;
-    font-size: 13px;
+    font-size: 12px;
     word-wrap:break-word;
 }
 .statusDateAndDelete{
     float:right;
     color:#696969;
-    font-size: 11px;
+    font-size: 10px;
 }
 .statusAuthor{
-    color:black;
+    color: black;
     text-decoration: none;
     font-weight: bold;
 }.statusAuthor:visited{
@@ -81,19 +81,19 @@ textarea#statustext{
     padding:2%;
 }
 div.status_boxes{
-    padding-top:0px; 
-    line-height:1.5em;
+    padding-top:5px; 
+    line-height:1.3em;
 }
 div.status_boxes > div{
-    padding:0px; 
-    border-bottom:rgb(98,200,236) 1px solid;  
+    padding-top: 1px; 
+    border-bottom:lightgrey 1px solid;  
 }
 div.status_boxes > button{
     padding:1.5px; 
     font-size:10px;
 }
 div.reply_boxes{
-    background:#FDF5E6;
+    background: rgba(98,200,236, .5);
 }
 textarea.replytext{
     width:96%; 
@@ -115,16 +115,16 @@ textarea.replytext{
     width:47px; 
     height:47px; 
     margin:2px; 
-    border-radius:6px;
+    border-radius:;
 }
 .userpostpics{
     width:45px; 
     height:45px; 
-    border-radius: 5px; 
-    margin:3px; 
+    border-radius: 95%; 
+    margin:5px; 
     float:left; 
     margin-left: 7px;
-    margin-top: 7px;
+    margin-top: 4px;
 }
 
 /*user page styling*/
