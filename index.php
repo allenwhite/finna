@@ -42,7 +42,6 @@ if($user_ok != true){
 	<title>Finna</title>
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	
-	<link href="style/Avenir.ttc" type='type/css'>
 	<link rel="stylesheet" href="style/style.css">
 
 	<script src="js/main.js"></script>

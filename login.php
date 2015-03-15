@@ -55,7 +55,6 @@ if(isset($_POST["u"])){
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Log In</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<link href="style/Avenir.ttc" type='type/css'>
 <link rel="stylesheet" href="style/style.css">
 <script src="js/main.js"></script>
 <script src="js/ajax.js"></script>
