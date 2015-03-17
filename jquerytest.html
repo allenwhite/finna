@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>click demo</title>
+  <style>
+  div {
+    color: red;
+    margin: 5px;
+    cursor: pointer;
+  }
+  div:hover {
+    background: yellow;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>First Paragraphh</div>
+<div>Second Paragraph</div>
+<div>Yet one more Paragraph</div>
+ 
+<script>
+$( "div" ).click(function() {
+  $( this ).slideUp();
+});
+</script>
+ 
+</body>
+</html>

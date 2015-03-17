@@ -96,6 +96,8 @@ div.status_boxes{
 div.status_boxes > div{
     padding-top: 1px; 
     border-bottom:lightgrey 1px solid;  
+
+
 }
 div.status_boxes > button{
     padding:1.5px; 
