@@ -185,7 +185,7 @@ if($avatar != ""){
 	        	}
 	    	}
 			$statuslist .= '<div id="status_'.$statusid.'" class="status_boxes">
-								<div onclick="showComments('.$statusid.')>
+								<div onclick="showComments('.$statusid.')">
 									<a href="user.php?u='.$author.'">
 										<img class="userpostpics" src="'.$pic.'" alt="'.$author.'" title="'.$author.'">
 									</a>
@@ -202,7 +202,7 @@ if($avatar != ""){
 										<a style="margin-top:-25px;" href="newReply.php?sid='.$statusid.'" class="replyStatus"><img src ="images/reply.png" alt="Finna Reply?"></a>
 									</div>
 								</div>
-								<div class="replyGroup" id="replyGroup'.$statusid.'">'
+								<div class="replyGroup" id="replyGroup'.$statusid.'" style="display:none;">'
 									.$status_replies.'
 								</div>
 							</div>';
@@ -271,9 +271,6 @@ function likeStatus(statusid,username){
 </div>
 
 <script>
-
-$(".replyGroup").hide();
-
 
 function showComments(statusid){
 	var repliestohide = '#replyGroup' + statusid;

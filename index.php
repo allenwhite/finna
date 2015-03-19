@@ -46,6 +46,7 @@ if($user_ok != true){
 
 	<script src="js/main.js"></script>
 	<script src="js/ajax.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
 	<div id="pageMiddle">
