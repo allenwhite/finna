@@ -184,6 +184,10 @@ if($avatar != ""){
 										</div>';
 	        	}
 	    	}
+	    	$commentIcon = '';
+	    	if(strlen($status_replies) != 0){
+				$commentIcon = '<div style="margin-top:-25px; float:right; margin-right: 22px;"><img src="images/comments.png" alt="Finna see comments?"></div>';
+	    	}
 			$statuslist .= '<div id="status_'.$statusid.'" class="status_boxes">
 								<div onclick="showComments('.$statusid.')>
 									<a href="user.php?u='.$author.'">
@@ -196,9 +200,10 @@ if($avatar != ""){
 										<span class="statusDateAndDelete">'.$postdate.' '.$statusDeleteButton.'</span>
 										<br />'.$data.'
 										<br /><br />
-										<div style="margin-bottom:5px; margin-right:30px;">
+										<div style="margin-bottom:5px; margin-right:45px;">
 											'.$statuslikes.'
 										</div>
+										'.$commentIcon.'
 										<a style="margin-top:-25px;" href="newReply.php?sid='.$statusid.'" class="replyStatus"><img src ="images/reply.png" alt="Finna Reply?"></a>
 									</div>
 								</div>
@@ -277,7 +282,7 @@ $(".replyGroup").hide();
 
 function showComments(statusid){
 	var repliestohide = '#replyGroup' + statusid;
-	$(repliestohide).toggle("slow");
+	$(repliestohide).toggle("fast");
 }
 
 </script>
