@@ -34,6 +34,8 @@ include_once("php_includes/check_login_status.php");
 				<!-- <img src="images/ic_action_edit.png"  class="editicons"> <input placeholder="Username" class="edittextbox" type="text" name="Name"><br>
 				<br> -->
 				<span class="edittextbox"><b><?php echo $log_username; ?></b></span><br><br>
+				<img src="images/ic_action_edit.png" class="editicons"> <textarea rows="2" cols="19" placeholder="Bio" class="edittextbox" type="text" name="bio"></textarea><br>
+				<br>
 				<img src="images/ic_action_secure.png" class="editicons"> <input placeholder="Password" class="edittextbox" type="password" name="pword"><br>
 				<br>
 				<img src="images/ic_action_secure.png" class="editicons">  <input placeholder="Confirm Password" class="edittextbox" type="password" name="cpword"><br>
