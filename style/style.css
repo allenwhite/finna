@@ -48,7 +48,7 @@ body{
     padding-top:2px;
     margin-right:7px;
     min-height:70px;
-    font-size: 12px;
+    font-size: 13px;
     word-wrap:break-word;
 }
 .statusDateAndDelete{
@@ -240,6 +240,7 @@ div#profile_pic_box > img{z-index:2000; width:72px; height:72px;}
 }
 .editicons {
     width:25px;
+    float: left;
 }
 
 /* .checkboxes */
