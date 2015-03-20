@@ -139,8 +139,35 @@ textarea.replytext{
 }
 
 /*user page styling*/
-div#profile_pic_box{margin-right: auto; margin-left: auto;margin-top:20px; border-radius: 100px; border:rgb(98,200,236) 1px solid; width:70px; height:70px; overflow-x:hidden; overflow-y:hidden;}
-div#profile_pic_box > img{z-index:2000; width:72px; height:72px;}
+
+div#UserBioDiv {
+float: right;
+margin-right: 12%;
+margin-top: -1%;
+max-width: 50%;
+}
+
+p.UserBio {
+font-size: 1em;
+}
+
+
+div#profile_pic_box{
+    margin-right: auto;
+     margin-left: 5%;
+     margin-top:20px; 
+     border-radius: 100px; 
+     border:rgb(98,200,236) 1px solid;
+     width:80px; height:80px;
+     overflow-x:hidden;
+     overflow-y:hidden;}
+
+div#profile_pic_box > img{z-index:2000; width:80px; height:80px;}
+
+.UserNameDisplay {
+    text-align:left;
+    margin-left: 5%;
+}
 
 .statusbutts {
     padding: 10px;
