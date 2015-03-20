@@ -1,15 +1,11 @@
 <!-- al how did you make this work -->
 
-<?php
-	
-include_once("php_includes/check_login_status.php");
-?>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title><?php echo $log_username; ?></title>
+	<title>porpoisepal</title>
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="style/style.css">
 	<script src="js/main.js"></script>
@@ -33,7 +29,7 @@ include_once("php_includes/check_login_status.php");
 			<form class="form" action="php_parsers/photo_system.php" method="POST" enctype="multipart/form-data">
 				<!-- <img src="images/ic_action_edit.png"  class="editicons"> <input placeholder="Username" class="edittextbox" type="text" name="Name"><br>
 				<br> -->
-				<span class="edittextbox"><b><?php echo $log_username; ?></b></span><br><br>
+				<span class="edittextbox"><b>porpoisepal</b></span><br><br>
 				<img src="images/ic_action_edit.png" class="editicons"> <textarea rows="2" cols="19" placeholder="Bio" class="edittextbox" type="text" name="bio"></textarea><br>
 				<br>
 				<img src="images/ic_action_secure.png" class="editicons"> <input placeholder="Password" class="edittextbox" type="password" name="pword"><br>
