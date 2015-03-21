@@ -80,6 +80,18 @@ if($u != $log_username && $user_ok == true){
         $isFriend = true;
     }
 }
+?><?php
+
+
+$bio ='';
+$sql = "SELECT bio FROM users WHERE username='$log_username' LIMIT 1";
+$bio_query = mysqli_query($db_conx, $sql);
+$biorow = mysqli_fetch_array($bio_query, MYSQLI_ASSOC);
+$biostring = $biorow["bio"];
+if($biostring != NULL){
+	$bio = $biostring;
+}
+
 ?><?php 
 $friend_button = '';
 // LOGIC FOR FRIEND BUTTON
@@ -187,7 +199,7 @@ if($friend_count < 1){
 	<div id="nonfeedCrap">
 		<div id="UserBioDiv">
 			<p class="UserBio">
-				This is a bunch of example text to see how this bio text works. Hey, Allen. You r a cutie.
+				<?php echo $bio; ?>
 
 			</p>
 
