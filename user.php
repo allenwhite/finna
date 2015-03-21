@@ -84,7 +84,7 @@ if($u != $log_username && $user_ok == true){
 
 
 $bio ='';
-$sql = "SELECT bio FROM users WHERE username='$log_username' LIMIT 1";
+$sql = "SELECT bio FROM users WHERE username='$u' LIMIT 1";
 $bio_query = mysqli_query($db_conx, $sql);
 $biorow = mysqli_fetch_array($bio_query, MYSQLI_ASSOC);
 $biostring = $biorow["bio"];
