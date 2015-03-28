@@ -16,7 +16,7 @@ if($avatar != ""){
 }
 
 ?><?php
-	$sql = "SELECT status.data, status.id, status.osid, status.account_name, status.author, status.postdate, status.type
+	$sql = "SELECT status.data, status.id, status.osid, status.account_name, status.author, status.postdate, status.type, status.location, status.time
 			FROM
 			(SELECT user1 AS user FROM friends WHERE user2='$log_username' AND accepted='1' 
 				UNION 
@@ -58,6 +58,18 @@ if($avatar != ""){
 			$data = str_replace("&amp;","&",$data);
 			$data = stripslashes($data);
 			$data = trim($data);
+
+			$time = $row["time"];
+			$time = nl2br($time);
+			$time = str_replace("&amp;","&",$time);
+			$time = stripslashes($time);
+			$time = trim($time);
+
+			$location = $row["location"];
+			$location = nl2br($location);
+			$location = str_replace("&amp;","&",$location);
+			$location = stripslashes($location);
+			$location = trim($location);
 
 			$data = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[A-Z0-9+&@#\/%=~_|]/i', '<a href="\0" target="blank">\0</a>', $data);
 
@@ -207,6 +219,11 @@ if($avatar != ""){
 										<a style="margin-top:-25px;" href="newReply.php?sid='.$statusid.'" class="replyStatus"><img src ="images/reply.png" alt="Finna Reply?"></a>
 									</div>
 								</div>
+
+								<div id="timeDate'.$statusid.'">
+										<p class="timeLocation" ><img src="images/time_icon.png" class="editicons">'.$time.'</p>
+										<p class="timeLocation" ><img src="images/location_icon.png" class="editicons">'.$location.'</p>
+								</div>
 								<div class="replyGroup" id="replyGroup'.$statusid.'" style="display:none;">'
 									.$status_replies.'
 								</div>
@@ -278,8 +295,20 @@ function likeStatus(statusid,username){
 <script>
 
 function showComments(statusid){
+	var timeDate = '#timeDate' + statusid;
+	$(timeDate).toggle("fast");
+
 	var repliestohide = '#replyGroup' + statusid;
 	$(repliestohide).toggle("fast");
+
+	var statusBox = $("status_" + statusid).children();
+
+	var border = statusBox[0].css("border-bottom");
+	if (border=="none") {
+		statusBox[0].css("border-bottom","lightgrey 1px solid");
+	} else {
+		statusBox[0].css("border-bottom","none");
+	}
 }
 
 </script>

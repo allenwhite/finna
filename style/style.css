@@ -154,6 +154,15 @@ textarea.replytext{
     margin-top: 4px;
 }
 
+.timeLocation {
+    display: inline-block;
+    margin-left: 13%;
+}
+
+.timeLocation > img {
+    margin-top: -5px;
+}
+
 /*user page styling*/
 
 .friends {
