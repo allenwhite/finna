@@ -89,6 +89,7 @@ $bio_query = mysqli_query($db_conx, $sql);
 $biorow = mysqli_fetch_array($bio_query, MYSQLI_ASSOC);
 $biostring = $biorow["bio"];
 if($biostring != NULL){
+
 	$bio = $biostring;
 }
 

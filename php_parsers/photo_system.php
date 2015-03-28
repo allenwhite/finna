@@ -133,7 +133,7 @@ if (isset($_POST['phone']) && $_POST['phone'] != ''){
 if (isset($_POST['bio']) && $_POST['bio'] != ''){
 
 	$bio = $_POST['bio'];
-
+	$bio = mysqli_real_escape_string($db_conx, $bio);
 	$sql = "UPDATE users SET bio='$bio' WHERE username='$log_username' LIMIT 1";
 	$query = mysqli_query($db_conx, $sql);	
 

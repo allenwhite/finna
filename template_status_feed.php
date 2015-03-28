@@ -220,7 +220,7 @@ if($avatar != ""){
 									</div>
 								</div>
 
-								<div id="timeDate'.$statusid.'">
+								<div id="timeDate'.$statusid.'" style="display:none;">
 										<p class="timeLocation" ><img src="images/time_icon.png" class="editicons">'.$time.'</p>
 										<p class="timeLocation" ><img src="images/location_icon.png" class="editicons">'.$location.'</p>
 								</div>
@@ -303,8 +303,8 @@ function showComments(statusid){
 
 	var statusBox = $("status_" + statusid).children();
 
-	var border = statusBox[0].css("border-bottom");
-	if (border=="none") {
+	var border = (statusBox[0]).css("border-bottom");
+	if (border==="none") {
 		statusBox[0].css("border-bottom","lightgrey 1px solid");
 	} else {
 		statusBox[0].css("border-bottom","none");

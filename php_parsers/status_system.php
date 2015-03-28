@@ -23,6 +23,7 @@ if (isset($_POST['action']) && $_POST['action'] == "status_post"){
 	// Clean all of the $_POST vars that will interact with the database
 	$type = preg_replace('#[^a-z]#', '', $_POST['type']);
 	$account_name = preg_replace('#[^a-z0-9]#i', '', $_POST['user']);
+	
 	$data = urldecode($_POST['data']);
 	$data = htmlentities($data);
 	$data = mysqli_real_escape_string($db_conx, $data);
@@ -140,6 +141,7 @@ if (isset($_POST['action']) && $_POST['action'] == "status_reply"){
 	// Clean the posted variables
 	$osid = preg_replace('#[^0-9]#', '', $_POST['sid']);
 	$account_name = preg_replace('#[^a-z0-9]#i', '', $_POST['user']);
+	
 	$data = htmlentities($_POST['data']);
 	$data = mysqli_real_escape_string($db_conx, $data);
 	// Make sure account name exists (the profile being posted on)
