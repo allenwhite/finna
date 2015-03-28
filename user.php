@@ -213,7 +213,7 @@ if($friend_count < 1){
 
 		<p class="friends"><?php echo $friendsHTML; ?></p>
 	</div>
-	<hr style="margin-bottom:0px;"/>
+	<hr style="margin-bottom:0px; margin-top:0px;"/>
 	<?php include_once("template_status.php"); ?>
 </div>
 </body>

@@ -161,8 +161,7 @@ textarea.replytext{
     width: 100%;
     overflow: auto;
     white-space:nowrap;
-    margin-right:auto; 
-    margin-left:auto;
+    margin-bottom: 0px;
 
 }
 .friends::-webkit-scrollbar { width: 0 !important }

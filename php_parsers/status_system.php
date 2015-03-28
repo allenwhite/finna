@@ -26,6 +26,16 @@ if (isset($_POST['action']) && $_POST['action'] == "status_post"){
 	$data = urldecode($_POST['data']);
 	$data = htmlentities($data);
 	$data = mysqli_real_escape_string($db_conx, $data);
+	//time
+	$time = urldecode($_POST['time']);
+	$time = htmlentities($time);
+	$time = mysqli_real_escape_string($db_conx, $time);
+	//location
+	$loc = urldecode($_POST['loc']);
+	$loc = htmlentities($loc);
+	$loc = mysqli_real_escape_string($db_conx, $loc);
+
+
 	// Make sure account name exists (the profile being posted on)
 	$sql = "SELECT COUNT(id) FROM users WHERE username='$account_name' AND activated='1' LIMIT 1";
 	$query = mysqli_query($db_conx, $sql);
@@ -36,8 +46,8 @@ if (isset($_POST['action']) && $_POST['action'] == "status_post"){
 		exit();
 	}
 	// Insert the status post into the database now
-	$sql = "INSERT INTO status(account_name, author, type, data, postdate) 
-			VALUES('$account_name','$log_username','$type','$data',now())";
+	$sql = "INSERT INTO status(account_name, author, type, data, postdate, location, time) 
+			VALUES('$account_name','$log_username','$type','$data',now(),'$loc','$time' )";
 	$query = mysqli_query($db_conx, $sql);
 	$id = mysqli_insert_id($db_conx);
 	mysqli_query($db_conx, "UPDATE status SET osid='$id' WHERE id='$id' LIMIT 1");

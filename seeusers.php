@@ -86,8 +86,19 @@
 		$status = urldecode($status);
 		$status = htmlentities($status);
 		$status = mysqli_real_escape_string($db_conx, $status);
+
+		$loc = $_GET["lc"];
+		$loc = urldecode($loc);
+		$loc = htmlentities($loc);
+		$loc = mysqli_real_escape_string($db_conx, $loc);
+
+		$tm = $_GET["tm"];
+		$tm = urldecode($tm);
+		$tm = htmlentities($tm);
+		$tm = mysqli_real_escape_string($db_conx, $tm);
+
 		$peeps .= '<div class="person" style="min-height:55px;"></div>';
-		$peeps .= '<button id="sendButton" onclick="postToStatus(\'status_post\',\'c\',\''.$log_username.'\',\''.$status.'\')"><div class="sendem"><span id="sendText"><b><i>Send >></i></b></span><img id="sendgif" src="images/leftshark.gif"></div></button>'; 
+		$peeps .= '<button id="sendButton" onclick="postToStatus(\'status_post\',\'c\',\''.$log_username.'\',\''.$status.'\',\''.$loc.'\',\''.$tm.'\')"><div class="sendem"><span id="sendText"><b><i>Send >></i></b></span><img id="sendgif" src="images/leftshark.gif"></div></button>'; 
 	}
 ?>
 <html>
@@ -147,7 +158,7 @@
 		     }
 		 }
 		///add ajax script to send username, status text and type=B to status system. friends as well(long string with seperator char?)************************************8***
-		function postToStatus(action,type,user,ta){
+		function postToStatus(action,type,user,ta,loc,tyme){
 			var data = ta;
 			if(data == ""){
 				return false;
@@ -178,7 +189,7 @@
 					}
 				}
 			}
-			ajax.send("action="+action+"&type="+type+"&user="+user+"&data="+data+"&friends="+friends);
+			ajax.send("action="+action+"&type="+type+"&user="+user+"&data="+data+"&friends="+friends+"&loc="+loc+"&time="+tyme);
 			// alert("action="+action+"&type="+type+"&user="+user+"&data="+data+"&friends="+friends);
 		}
 	</script>
