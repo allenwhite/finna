@@ -147,7 +147,12 @@ if (isset($_POST['action']) && $_POST['action'] == "status_reply"){
 	$query = mysqli_query($db_conx, $sql);
 	$id = mysqli_insert_id($db_conx);
 	// Insert notifications for everybody in the conversation except this author
-	$sql = "SELECT author FROM status WHERE osid='$osid' AND author!='$log_username' GROUP BY author";
+
+
+
+	$sql = "(select account_name as author from user_likes where osid='$osid' and account_name!='$log_username') 
+				union 
+			(select author as author from status where osid='$osid' and author!='$log_username')";
 	$query = mysqli_query($db_conx, $sql);
 	while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
 		$participant = $row["author"];
