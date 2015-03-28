@@ -91,11 +91,15 @@ textarea#statustext{
 }
 
 textarea#statustime {
-    width:100%;
+    width:200px;
+    border:none;
+    resize:none;
 }
 
 textarea#statuslocation {
-    width: 100%;
+    width: 200px;
+    border:none;
+    resize:none;
 }
 div.status_boxes{
     padding-top:5px; 
