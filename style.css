@@ -299,3 +299,12 @@ div#profile_pic_box > img{z-index:2000; width:72px; height:72px;}
     height:50px;
     float: right;
 }
+
+.friends{
+    height: 80px;
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+    margin-bottom: 0px;
+
+}
