@@ -89,6 +89,15 @@ textarea#statustext{
     box-shadow: none;
     padding:2%;
 }
+
+textarea#statustime {
+    width:100%;
+}
+
+textarea#statuslocation {
+    width: 100%;
+}
+
 div.status_boxes{
     padding-top:5px; 
     line-height:1.3em;

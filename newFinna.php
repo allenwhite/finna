@@ -69,6 +69,8 @@ include_once("php_includes/check_login_status.php");
 		<?php
 			if($user_ok == true){
 				echo '<textarea id="statustext" onkeyup="statusMax(this,150)" style="font-family: Helvetica, sans-serif;" placeholder="I\'m finna..." ></textarea>';
+				echo ' <img src="time_icon.png" class="editicons"> <textarea id="statustime" onkeyup="statusMax(this,150)" style="font-family: Helvetica, sans-serif;" placeholder="Time" ></textarea>';
+				echo ' <img src="location_icon.png" class="editicons"><textarea id="statuslocation" onkeyup="statusMax(this,150)" style="font-family: Helvetica, sans-serif;" placeholder="Location" ></textarea>';
 				echo '<button class="statusbutts" id="statusBtn" onclick="postToStatus(\'status_post\',\'a\',\''.$log_username.'\',\'statustext\')">Post</button>';
 ///////////////////////////////////////////////////////////////////////////////////////////urlencode this status shit
 			}
