@@ -59,22 +59,22 @@ if(isset($_POST["u"])){
 	$ph_check = mysqli_num_rows($query);
 	// FORM DATA ERROR HANDLING
 	if($u == "" || $ph == "" || $p == ""){
-		echo "The form submission is missing values.";
+		echo "error...";
         exit();
 	} else if ($u_check > 0){ 
-        echo "The username you entered is already taken";
+		echo "error...";
         exit();
 	} else if ($ph_check > 0){ 
-        echo "That phone number is already in use in the system";
+		echo "error...";
         exit();
 	} else if (strlen($u) < 3 || strlen($u) > 16) {
-        echo "Username must be between 3 and 16 characters";
+        echo "error...";
         exit(); 
     } else if (is_numeric($u[0])) {
-        echo 'Username cannot begin with a number';
+        echo "error...";
         exit();
     }else if(!is_numeric($ph)){
-    	echo 'Please enter a valid phone number';
+    	echo "error...";
     } else {
 	// END FORM DATA ERROR HANDLING
 	    // Begin Insertion of data into the database
@@ -94,6 +94,8 @@ if(isset($_POST["u"])){
 		if (!file_exists("user/$u")) {
 			mkdir("user/$u", 0755);
 		}
+		$sql = "INSERT INTO friends(user1, user2, datemade) VALUES('imfinnaadmin','$u',now())";
+		$query = mysqli_query($db_conx, $sql); 
 		echo "signup_success";
 		exit();
 	}
@@ -155,7 +157,7 @@ function signup(){
 		var ajax = ajaxObj("POST", "signup.php");
         ajax.onreadystatechange = function() {
 	        if(ajaxReturn(ajax) == true) {
-	            if(ajax.responseText != "signup_success"){
+	            if(ajax.responseText == "error..."){
 					status.innerHTML = ajax.responseText;
 					_("signupbtn").style.display = "block";
 				} else {
