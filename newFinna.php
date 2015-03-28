@@ -72,6 +72,7 @@ include_once("php_includes/check_login_status.php");
 				echo ' <img src="time_icon.png" class="editicons"> <textarea id="statustime" onkeyup="statusMax(this,150)" style="font-family: Helvetica, sans-serif;" placeholder="Time" ></textarea>';
 				echo '<br>';
 				echo ' <img src="location_icon.png" class="editicons"><textarea id="statuslocation" onkeyup="statusMax(this,150)" style="font-family: Helvetica, sans-serif;" placeholder="Location" ></textarea>';
+				echo '<br>';
 				echo '<button class="statusbutts" id="statusBtn" onclick="postToStatus(\'status_post\',\'a\',\''.$log_username.'\',\'statustext\')">Post</button>';
 ///////////////////////////////////////////////////////////////////////////////////////////urlencode this status shit
 			}
