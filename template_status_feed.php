@@ -300,6 +300,15 @@ function showComments(statusid){
 
 	var repliestohide = '#replyGroup' + statusid;
 	$(repliestohide).toggle("fast");
+
+	var statusBox = $("status_" + statusid).children();
+
+	var border = statusBox[0].css("border-bottom");
+	if (border=="none") {
+		statusBox[0].css("border-bottom","lightgrey 1px solid");
+	} else {
+		statusBox[0].css("border-bottom","none");
+	}
 }
 
 </script>
