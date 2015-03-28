@@ -23,8 +23,8 @@ include_once("php_includes/check_login_status.php");
 		}
 		function postToStatus(action,type,user,ta){
 			var data = _(ta).value;
-			var loc = _("statuslocation");
-			var tym = _("statustime");
+			var loc = _("statuslocation").value;
+			var tym = _("statustime").value;
 			if(data == ""){
 				return false;
 			}

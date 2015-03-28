@@ -169,7 +169,7 @@ textarea.replytext{
 div#UserBioDiv {
 float: right;
 margin-right: 12%;
-margin-top: -1%;
+margin-top: -20px;
 max-width: 50%;
 }
 
@@ -186,7 +186,9 @@ div#profile_pic_box{
      border:rgb(98,200,236) 1px solid;
      width:80px; height:80px;
      overflow-x:hidden;
-     overflow-y:hidden;}
+     overflow-y:hidden;
+     margin-bottom: 30px;
+}
 
 div#profile_pic_box > img{z-index:2000; width:80px; height:80px;}
 
