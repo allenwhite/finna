@@ -78,7 +78,7 @@ body{
 a{text-decoration: none;}
 textarea#statustext{
     width:96%; 
-    height:140px; 
+    height:90px; 
     border:none;
     font-size:20px; 
     resize:none;
@@ -88,6 +88,22 @@ textarea#statustext{
     -moz-box-shadow: none;
     box-shadow: none;
     padding:2%;
+}
+
+textarea#statustime {
+    width:250px;
+    border:none;
+    resize:none;
+    outline:none;
+}
+
+
+
+textarea#statuslocation {
+    width: 250px;
+    border:none;
+    resize:none;
+    outline:none;
 }
 div.status_boxes{
     padding-top:5px; 
