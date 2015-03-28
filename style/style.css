@@ -78,7 +78,7 @@ body{
 a{text-decoration: none;}
 textarea#statustext{
     width:96%; 
-    height:140px; 
+    height:90px; 
     border:none;
     font-size:20px; 
     resize:none;
