@@ -125,7 +125,7 @@ textarea.replytext{
 .userpics{
     width:47px; 
     height:47px; 
-    margin:2px; 
+    margin:5px; 
     border-radius:100px;
 }
 .userpostpics{
@@ -139,6 +139,17 @@ textarea.replytext{
 }
 
 /*user page styling*/
+
+.friends {
+    height: 80px;
+    width: 100%;
+    overflow: auto;
+    white-space:nowrap;
+    margin-right:auto; 
+    margin-left:auto;
+
+}
+.friends::-webkit-scrollbar { width: 0 !important }
 
 div#UserBioDiv {
 float: right;
