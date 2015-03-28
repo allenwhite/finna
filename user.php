@@ -209,8 +209,9 @@ if($friend_count < 1){
 		<div id="profile_pic_box"><?php echo $profile_pic; ?></div>
 		<hr />
 		<p style="margin-left:20px; height:38px; font-size:16px;"><?php echo $friend_count." friends ".$friends_view_all_link; ?>  <span id="friendBtn"><?php echo $friend_button; ?></span></p>
-		<hr />
-		<p style="width:310px; margin-right:auto; margin-left:auto;"><?php echo $friendsHTML; ?></p>
+
+
+		<p class="friends"><?php echo $friendsHTML; ?></p>
 	</div>
 	<hr style="margin-bottom:0px;"/>
 	<?php include_once("template_status.php"); ?>
