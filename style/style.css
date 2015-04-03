@@ -255,7 +255,7 @@ div#profile_pic_box > img{z-index:2000; width:80px; height:80px;}
 }
 #signupform > input {
     padding: 7px;
-    background: #F3F9DD;
+    background: #fcfaff;
     font-size: 16px;
     border-radius:14px;
     border:none;
@@ -265,6 +265,18 @@ div#profile_pic_box > img{z-index:2000; width:80px; height:80px;}
 #signupform > input:focus {
     outline:0px;
 }
+
+#signupform > button {
+    padding: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 15px;
+    background: #fcfaff;
+    border:none;
+    color: rgb(98,200,236);;
+    border-radius:7px;
+}
+
 #phone1,#phone2,#phone3{
     width:24%;
 }
