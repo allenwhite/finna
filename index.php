@@ -10,11 +10,9 @@ if($user_ok != true){
 	if(isset($_GET["id"])){
 		//if set, check if it matches what is there already
 		$reg_id = $_GET['id'];
-		
-		$sql = "SELECT gcm_regid FROM users WHERE username='$log_username' AND activated='1' LIMIT 1";
-		$regid_query = mysqli_query($db_conx, $sql);
-		$regid_row = mysqli_fetch_row($regid_query);
-		$dbregid = $regid_row[0];
+
+		//set that b
+		mysqli_query($db_conx, "UPDATE users SET gcm_regid='' WHERE gcm_regid='$reg_id' AND username!='$log_username' LIMIT 1");
 
 		//set that b
 		mysqli_query($db_conx, "UPDATE users SET gcm_regid='$reg_id' WHERE username='$log_username' LIMIT 1");
@@ -23,10 +21,7 @@ if($user_ok != true){
 		//if set, check if it matches what is there already
 		$reg_id = $_GET['APNSid'];
 		
-		$sql = "SELECT apnsID FROM users WHERE username='$log_username' AND activated='1' LIMIT 1";
-		$regid_query = mysqli_query($db_conx, $sql);
-		$regid_row = mysqli_fetch_row($regid_query);
-		$dbregid = $regid_row[0];
+		mysqli_query($db_conx, "UPDATE users SET apnsID='' WHERE apnsID='$reg_id' AND username!='$log_username' LIMIT 1");
 
 		//bitch try me
 		mysqli_query($db_conx, "UPDATE users SET apnsID='$reg_id' WHERE username='$log_username' LIMIT 1");

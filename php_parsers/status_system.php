@@ -36,6 +36,9 @@ if (isset($_POST['action']) && $_POST['action'] == "status_post"){
 	$loc = htmlentities($loc);
 	$loc = mysqli_real_escape_string($db_conx, $loc);
 
+	if(strlen($loc) < 1){	$loc = null;	}
+	if(strlen($time) < 1){	$time = null; }
+
 
 	// Make sure account name exists (the profile being posted on)
 	$sql = "SELECT COUNT(id) FROM users WHERE username='$account_name' AND activated='1' LIMIT 1";

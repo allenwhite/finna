@@ -28,21 +28,21 @@ if($log_username !== ''){
 		//if set, check if it matches what is there already
 		$reg_id = $_GET['id'];
 
-		//set that bitch, let god sort it out
-		mysqli_query($db_conx, "UPDATE users SET gcm_regid='$reg_id' WHERE username='$log_username' LIMIT 1");
+		//set that b
+		mysqli_query($db_conx, "UPDATE users SET gcm_regid='' WHERE gcm_regid='$reg_id' AND username!='$log_username' LIMIT 1");
 
+		//set that b
+		mysqli_query($db_conx, "UPDATE users SET gcm_regid='$reg_id' WHERE username='$log_username' LIMIT 1");
+		
 	}else if(isset($_GET["APNSid"])){
 		//if set, check if it matches what is there already
 		$reg_id = $_GET['APNSid'];
 		
-		$sql = "SELECT apnsID FROM users WHERE username='$log_username' AND activated='1' LIMIT 1";
-		$regid_query = mysqli_query($db_conx, $sql);
-		$regid_row = mysqli_fetch_row($regid_query);
-		$dbregid = $regid_row[0];
+		mysqli_query($db_conx, "UPDATE users SET apnsID='' WHERE apnsID='$reg_id' AND username!='$log_username' LIMIT 1");
 
-		//set that bitch, let god sort it out
+		//bitch try me
 		mysqli_query($db_conx, "UPDATE users SET apnsID='$reg_id' WHERE username='$log_username' LIMIT 1");
-		
+		// type and words
 	}
 }
 
@@ -173,6 +173,7 @@ if($friend_count < 1){
 <link rel="stylesheet" href="style/style.css">
 <script src="js/main.js"></script>
 <script src="js/ajax.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
 	function friendToggle(type,user,elem){
 		_(elem).innerHTML = '<img style="width:53px; height:30px;" src="images/leftshark.gif">';
@@ -215,7 +216,7 @@ if($friend_count < 1){
 		<p class="friends"><?php echo $friendsHTML; ?></p>
 	</div>
 	<hr style="margin-bottom:0px; margin-top:0px;"/>
-	<?php include_once("template_status.php"); ?>
+	<?php include_once("template_status_feed.php"); ?>
 </div>
 </body>
 </html>

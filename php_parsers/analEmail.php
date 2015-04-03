@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 	ini_set('display_errors', '1');
 include_once("../php_includes/check_login_status.php");
-
+require_once("phpmailer/class.phpmailer.php");
 $output = '';
 
 //total users
@@ -146,7 +146,7 @@ $sql = "select osid from user_likes where osid in (
 $query = mysqli_query($db_conx,$sql);
 $output .= "<u><b>most finna'd statuses</b></u><br/>";
 $output .= "<table>";
-$output .= "<tr><td><b>user:</b></td><td><b>status:</b></td><td><b>time:</b></td><td><b>location:</b></td></tr>";
+$output .= "<tr><td><b>user:</b></td><td><b>time:</b></td><td><b>location:</b></td><td><b>status</b></td></tr>";
 
 while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
 	$osid = $row["osid"];
@@ -157,7 +157,7 @@ while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
 	$data = $row["data"];
 	$time = $row["time"];
 	$location = $row["location"];
-	$output .= "<tr><td>$author</td><td>$data</td><td>$time</td><td>$location</td></tr>";	
+	$output .= "<tr><td>$author</td><td>$time</td><td>$location</td><td>$data</td></tr>";	
 }
 $output .= "</table>";
 
@@ -251,46 +251,48 @@ $output .= "</table>";
 
 
 
+$myfile = fopen("anal.html", "w") or die("Unable to open file!");
+fwrite($myfile, $output);
+fclose($myfile);
+
+
+
+$mail = new PHPMailer;
+
+//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+// $mail->isSMTP();                                      // Set mailer to use SMTP
+//$mail->Host = 'smtp1.example.com;smtp2.example.com';  // Specify main and backup SMTP servers
+//$mail->SMTPAuth = true;                               // Enable SMTP authentication
+//$mail->Username = 'user@example.com';                 // SMTP username
+//$mail->Password = 'secret';                           // SMTP password
+// $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+// $mail->Port = 587;                                    // TCP port to connect to
+
+$mail->From = 'autobot@grosh.co';
+$mail->FromName = 'Autobot';
+$mail->addAddress('awhite23@rocketmail.com', 'Al Pal');     // Add a recipient
+$mail->addAddress('sebastiankovach@gmail.com');
+$mail->addAddress('chadgoodwinwwi@gmail.com');               // Name is optional
+$mail->addReplyTo('awhite23@rocketmail.com', 'hit me up nigga');
+// $mail->addCC('cc@example.com');
+// $mail->addBCC('bcc@example.com');
+
+$mail->AddAttachment( 'anal.html' );    // Optional name
+$mail->isHTML(true);                                  // Set email format to HTML
+
+$mail->Subject   = 'FINNA WEEKLY ANALYTICS';
+$mail->Body   	= 'Here are some analytics for the past week, courtesy of your local finna robot';
+$mail->AltBody = 'Here is some analytics.';
+
+if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
+}
+
+
+exit();
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>Finna analytics</title>
-</head>
-<style type="text/css">
-@font-face{
-    font-family: avenir;
-    src: url(AvenirLTStd-Book.otf);
-}
-@font-face{
-    font-family: avenir;
-    src: url(AvenirLTStd-Heavy.otf);
-    font-weight: bold;
-}
-html{
-    margin:0px;
-    padding:0px;
-}
-body{
-    margin:10px;
-    font-family: avenir, "HelveticaNeue", "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 300;
-    font-size: 13px;
-    padding: 0px;
-    background: rgba(27, 169, 187, 0.63);
-}
-td{
-	padding:3px;
-}
-</style>
-<body>
-	<div id="pageMiddle">
-		<?php
-			echo $output;
-		?>
-	</div>
-</body>
-</html>

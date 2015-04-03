@@ -4,18 +4,48 @@ error_reporting(E_ALL);
 
 include_once("php_parsers/timestamp_system.php");
 
-$statuslist = "";
-$avatarsql = "SELECT avatar FROM users WHERE username='$log_username' LIMIT 1";
-$avatarquery = mysqli_query($db_conx, $avatarsql);
-$avatarrow = mysqli_fetch_array($avatarquery, MYSQLI_ASSOC);
-$avatar = $avatarrow["avatar"];
-if($avatar != ""){
-	$mypic = 'user/'.$log_username.'/'.$avatar.'';
-} else {
-	$mypic = 'images/avatardefault.jpg';
-}
+if(isset($u)){
 
-?><?php
+	$avatarsql = "SELECT avatar FROM users WHERE username='$u' LIMIT 1";
+	$avatarquery = mysqli_query($db_conx, $avatarsql);
+	$avatarrow = mysqli_fetch_array($avatarquery, MYSQLI_ASSOC);
+	$avatar = $avatarrow["avatar"];
+	if($avatar != ""){
+		$pic = 'user/'.$u.'/'.$avatar.'';
+	} else {
+		$pic = 'images/avatardefault.jpg';
+	}
+	$mypic = $pic;
+
+	if($isOwner == "yes"){
+		
+	} else if($isFriend == true && $log_username != $u){
+		$avatarsql = "SELECT avatar FROM users WHERE username='$log_username' LIMIT 1";
+		$avatarquery = mysqli_query($db_conx, $avatarsql);
+		$avatarrow = mysqli_fetch_array($avatarquery, MYSQLI_ASSOC);
+		$avatar = $avatarrow["avatar"];
+		if($avatar != ""){
+			$mypic = 'user/'.$log_username.'/'.$avatar.'';
+		} else {
+			$mypic = 'images/avatardefault.jpg';
+		}
+
+	}
+
+	$sql = "SELECT * FROM status WHERE account_name='$u' AND type='a' ORDER BY postdate DESC LIMIT 20";
+
+}else{
+
+	$avatarsql = "SELECT avatar FROM users WHERE username='$log_username' LIMIT 1";	
+	$avatarquery = mysqli_query($db_conx, $avatarsql);
+	$avatarrow = mysqli_fetch_array($avatarquery, MYSQLI_ASSOC);
+	$avatar = $avatarrow["avatar"];
+	if($avatar != ""){
+		$mypic = 'user/'.$log_username.'/'.$avatar.'';
+	} else {
+		$mypic = 'images/avatardefault.jpg';
+	}
+
 	$sql = "SELECT status.data, status.id, status.osid, status.account_name, status.author, status.postdate, status.type, status.location, status.time
 			FROM
 			(SELECT user1 AS user FROM friends WHERE user2='$log_username' AND accepted='1' 
@@ -27,6 +57,14 @@ if($avatar != ""){
 			status
 			ON friendz.user=status.account_name
 			ORDER BY postdate DESC";
+
+}
+$statuslist = "";
+
+
+
+?><?php
+	
 
 	$query = mysqli_query($db_conx, $sql);
 	$statusnumrows = mysqli_num_rows($query);
@@ -305,17 +343,10 @@ function showComments(statusid){
 
 	var border = (statusBox[0]).css("border-bottom");
 	if (border==="none") {
-		statusBox[0].css("border-bottom","lightgrey 1px solid");
+		//statusBox[0].css("border-bottom","lightgrey 1px solid");
 	} else {
-		statusBox[0].css("border-bottom","none");
+		//statusBox[0].css("border-bottom","none");
 	}
 }
 
 </script>
-
-
-
-
-
-
-
