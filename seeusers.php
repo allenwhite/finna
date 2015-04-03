@@ -14,7 +14,7 @@
 			INNER JOIN
 			users
 			ON friendz.user=users.username
-			ORDER BY signup DESC";
+			ORDER BY username ASC";
 	} else if(isset($_GET["osid"])){
 		$osid = preg_replace('#[^a-z0-9]#i', '', $_GET['osid']);
 		$sql = "SELECT users.username, users.avatar, users.signup
@@ -23,9 +23,16 @@
 				INNER JOIN
 				users
 				ON likers.account_name=users.username
-				ORDER BY signup DESC";
+				ORDER BY username ASC";
 	}else {
-		$sql = "SELECT username, avatar FROM users ORDER BY signup DESC";
+		$sql = "SELECT username, avatar FROM users ORDER BY username ASC";
+
+		$peeps .= '<div class="person" style="height:50px; padding:7px; border-bottom:1px solid rgb(98,200,236);">
+						<div class="user_info" style="margin-left:30px; font-size:16px; color: rgb(98,200,236);">
+							<input onkeyup="search()" type="text" id="searchbox" placeholder="Search..." style="width:100%; height:100%; border:none; outline:none;">
+						</div>
+					</div>';
+
 	}
 	$current = 0;
 
@@ -117,7 +124,28 @@
 	?>
 </body>
 <script type="text/javascript">
-		function friendToggle(type,user,elem){
+		function search() {
+			var searchtext = document.getElementById('searchbox');
+		    var peopleBoxes = document.getElementsByClassName('person');
+		    
+		    for (var i = peopleBoxes.length - 1; i >= 0; i--) {
+		    	var box = peopleBoxes[i].getElementsByClassName('user_info')[0].getElementsByTagName('b')[0];
+		    	if (typeof(box) != 'undefined' && box != null){
+		    		if(event.keyCode != 8){
+			    		if(searchtext.value.toLowerCase() != box.innerHTML.substring(0,searchtext.value.length)){
+							peopleBoxes[i].style.display='none';
+						}    		
+		    		}else{//backspace, show all the thing we just erased
+		    			if(searchtext.value.toLowerCase() === box.innerHTML.substring(0,searchtext.value.length)){
+							peopleBoxes[i].style.display='block';
+						}
+		    		}
+		    	}
+		    }
+		     
+		 }
+
+		 function friendToggle(type,user,elem){
 			_(elem).innerHTML = '<img style="width:53px; height:30px;" src="images/leftshark.gif">';
 			var ajax = ajaxObj("POST", "php_parsers/friend_system.php");
 			ajax.onreadystatechange = function() {
