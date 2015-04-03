@@ -199,16 +199,14 @@ if($friend_count < 1){
 <body>
 <div id="pageMiddle">
 	<div id="nonfeedCrap">
+		<div id="profile_pic_box"><?php echo $profile_pic; ?></div> <span id="friendBtn"><?php echo $friend_button; ?></span>
 		<div id="UserBioDiv">
 			<h2 class="UserNameDisplay"><?php echo $u; ?></h2>
 			<p class="UserBio">
 				<?php echo $bio; ?>
 
 			</p>
-
-
 		</div>
-		<div id="profile_pic_box"><?php echo $profile_pic; ?></div> <span id="friendBtn"><?php echo $friend_button; ?></span>
 		<hr />
 		<p style="margin-left:20px; height:38px; font-size:16px;"><?php echo $friend_count." friends ".$friends_view_all_link; ?>  </p>
 		<hr />
