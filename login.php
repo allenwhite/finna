@@ -86,9 +86,7 @@ function login(){
 }
 </script>
 </head>
-<body style="background:url(https://secure.static.tumblr.com/ecb2a659f3dacc1907eb9a0ed75eb5a1/kcebonh/sQRn8bmxs/tumblr_static_wrbkf.jpg),black;
-background-position: 700px;
-background-size: 400%; color:white;">
+<body style="background-color:rgb(98,200,236); color:white;">
 <div id="pageMiddle">
   <h3 style="margin-left:5%; margin-top:20px; margin-bottom:10px; font-size:200%; text-align:center; width:90%;">Dive In Here</h3>
   <!-- LOGIN FORM -->
@@ -98,7 +96,7 @@ background-size: 400%; color:white;">
     <div><b>Password:</b></div>
     <input type="password" id="password" onfocus="emptyElement('status')" maxlength="100">
     <br /><br />
-    <button id="loginbtn" class="statusbutts" onclick="login()" style="margin:0px;">Log In</button> 
+    <button id="loginbtn" onclick="login()" style="margin:0px;">Log In</button> 
     <br />
     <p id="status"></p>
     <p><a style="color:white;" href="forgot_pass.php">Forgot Your Password?</a></p>

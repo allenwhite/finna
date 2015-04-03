@@ -23,27 +23,15 @@ include_once("php_includes/check_login_status.php");
 		}
 		function postToStatus(action,type,user,ta){
 			var data = _(ta).value;
+			var loc = _("statuslocation").value;
+			var tym = _("statustime").value;
 			if(data == ""){
 				return false;
 			}
 			_("statusBtn").disabled = true;
-			var url = "seeusers.php?u=" + user + "&st=" + data;
+			var url = "seeusers.php?u=" + user + "&st=" + data + "&lc=" + loc + "&tm=" + tym;
 			window.location.assign(url);
-			// var ajax = ajaxObj("POST", "php_parsers/status_system.php");
-			// ajax.onreadystatechange = function() {
-			// 	if(ajaxReturn(ajax) == true) {
-			// 		var datArray = ajax.responseText.trim().split("|");
-			// 		if(datArray[0] == "post_ok"){
-			// 			var sid = datArray[1];
-			// 			data = data.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n/g,"<br />").replace(/\r/g,"<br />");
-			// 			window.location.assign("index.php");
 
-			// 		} else {
-			// 			alert(ajax.responseText);
-			// 		}
-			// 	}
-			// }
-			// ajax.send("action="+action+"&type="+type+"&user="+user+"&data="+data);
 		}
 		function runit(){
 			var statusbox =document.getElementById("statustext");
@@ -71,10 +59,9 @@ include_once("php_includes/check_login_status.php");
 				echo '<textarea id="statustext" onkeyup="statusMax(this,150)" style="font-family: Helvetica, sans-serif;" placeholder="I\'m finna..." ></textarea>';
 				echo ' <img src="images/time_icon.png" class="editicons"> <textarea id="statustime" onkeyup="statusMax(this,150)" style="font-family: Helvetica, sans-serif;" placeholder="Time" ></textarea>';
 				echo '<br>';
-				echo ' <img src="imgages/location_icon.png" class="editicons"><textarea id="statuslocation" onkeyup="statusMax(this,150)" style="font-family: Helvetica, sans-serif;" placeholder="Location" ></textarea>';
+				echo ' <img src="images/location_icon.png" class="editicons"><textarea id="statuslocation" onkeyup="statusMax(this,150)" style="font-family: Helvetica, sans-serif;" placeholder="Location" ></textarea>';
 				echo '<br>';
 				echo '<button class="statusbutts" id="statusBtn" onclick="postToStatus(\'status_post\',\'a\',\''.$log_username.'\',\'statustext\')">Post</button>';
-///////////////////////////////////////////////////////////////////////////////////////////urlencode this status shit
 			}
 		?>
 	</div>
