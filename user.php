@@ -212,7 +212,7 @@ if($friend_count < 1){
 		<hr />
 		<p style="margin-left:20px; height:38px; font-size:16px;"><?php echo $friend_count." friends ".$friends_view_all_link; ?>  </p>
 		<hr />
-		<p style="width:310px; margin-right:auto; margin-left:auto;"><?php echo $friendsHTML; ?></p>
+		<p style="width:100%; margin-right:auto; margin-left:auto;" class="friends"><?php echo $friendsHTML; ?></p>
 	</div>
 	<hr style="margin-bottom:0px; margin-top:0px;"/>
 	<?php include_once("template_status_feed.php"); ?>
