@@ -221,12 +221,12 @@ $statuslist = "";
 					$status_replies .= '<div id="reply_'.$statusreplyid.'" class="reply_boxes">
 											<div>
 												<a href="user.php?u='.$replyauthor.'">
-													<img class="userpostpics" src="'.$replypic.'" alt="'.$replyauthor.'" title="'.$replyauthor.'">
+													<div class="userpostpics" style="background-image:url('.$replypic.'); background-position: center center; background-repeat: no-repeat; background-size:45px;" ></div>
 												</a>
 												<div class="statusData">
-													<a class="statusAuthor"href="user.php?u='.$replyauthor.'">'.
-														$replyauthor.'
-													</a>
+													<b>
+														'.$replyauthor.'
+													</b>
 													<span class="statusDateAndDelete">'.$replypostdate.' '.$replyDeleteButton.'</span>
 													<br />'.$replydata.'
 													
@@ -245,9 +245,9 @@ $statuslist = "";
 										<div class="userpostpics" style="background-image:url('.$pic.'); background-position: center center; background-repeat: no-repeat; background-size:45px;" ></div>
 									</a>
 									<div class="statusData">
-										<a class="statusAuthor" href="user.php?u='.$author.'">
+										<b>
 											'.$author.'
-										</a>
+										</b>
 										<span class="statusDateAndDelete">'.$postdate.' '.$statusDeleteButton.'</span>
 										<br />'.$data.'
 										<br /><br />

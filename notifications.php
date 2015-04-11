@@ -74,16 +74,17 @@ while (($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) && ($i < 15)) {
 		$thumbquery = mysqli_query($db_conx, "SELECT avatar FROM users WHERE username='$initiator' LIMIT 1");
 		$thumbrow = mysqli_fetch_row($thumbquery);
 		$user1avatar = $thumbrow[0];
-		$user1pic = '<img src="user/'.$initiator.'/'.$user1avatar.'" alt="'.$initiator.'" class="user_spic">';
-		if($user1avatar == NULL){
-			$user1pic = '<img src="images/avatardefault.jpg" alt="'.$initiator.'" class="user_spic">';
+		if($user1avatar != ""){
+			$pic = 'user/'.$initiator.'/'.$user1avatar.'';
+		} else {
+			$pic = 'images/avatardefault.jpg';
 		}
 
 		$date_time = $row["date_time"];
 		$date_time = convert_datetime($date_time); // Convert Date Time
 		$date_time = makeAgo($date_time);
 		
-		$notification_list .= "<div class='note friendrequests' ><a href='user.php?u=".$initiator."'>".$user1pic."</a><a class='seeallfinners' href='index.php#status_".$osid."'><div class='user_info'><b>$initiator</b><span class='statusDateAndDelete'>$date_time</span><br />$note</div></a></div>";
+		$notification_list .= "<div class='note friendrequests' style='min-height:70px; border-bottom:rgb(98,200,236) 1px solid; border-color:rgb(98,200,236); margin-bottom:0px;padding:7px;' ><a href='user.php?u=".$initiator."'>".'<div class="user_spic" style="background-image:url('.$pic.'); background-position: center center; background-repeat: no-repeat; background-size:40px;float:left; width:40px; height:40px; margin-right:8px; border-radius:100px;" ></div>'."</a><a class='seeallfinners' href='index.php#status_".$osid."'><div class='user_info' style='padding-left:50px; margin-top:0px; font-size:14px;word-wrap:break-word;'><b>$initiator</b><span class='statusDateAndDelete'>$date_time</span><br />$note</div></a></div>";
 	
 		$i++;
 
@@ -108,13 +109,19 @@ while (($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) && ($i < 15)) {
 			$thumbquery = mysqli_query($db_conx, "SELECT avatar FROM users WHERE username='$initiator' LIMIT 1");
 			$thumbrow = mysqli_fetch_row($thumbquery);
 			$user1avatar = $thumbrow[0];
-			$user1pic = '<img src="user/'.$initiator.'/'.$user1avatar.'" alt="'.$initiator.'" class="user_fpic">';
-			if($user1avatar == NULL){
-				$user1pic = '<img src="images/avatardefault.jpg" alt="'.$initiator.'" class="user_fpic">';
+			if($user1avatar != ""){
+				$pic = 'user/'.$initiator.'/'.$user1avatar.'';
+			} else {
+				$pic = 'images/avatardefault.jpg';
 			}
-			$notification_list .= $user1pic;
+
+//			$user1pic = '<img src="user/'.$initiator.'/'.$user1avatar.'" alt="'.$initiator.'" class="user_fpic">';
+
+			
+			$notification_list .= '<div class="user_fpic" style="background-image:url('.$pic.'); background-position: center center; background-repeat: no-repeat; background-size:40px;width:35px; float:left; height:35px; margin-right:6px; border-radius:100px;" ></div>';
 			$r++;
 		}
+		$notification_list .= '<br>';
 		if($numfinnas > 6){
 			if($numfinnas - 6 ==1){$notification_list .= "<br><i>and ".($numfinnas - 6)." other</i>";}
 			else{$notification_list .= "<br><i>and ".($numfinnas - 6)." others</i>";}
@@ -149,14 +156,15 @@ if($numrows < 1){
 		$thumbquery = mysqli_query($db_conx, "SELECT avatar FROM users WHERE username='$user1' LIMIT 1");
 		$thumbrow = mysqli_fetch_row($thumbquery);
 		$user1avatar = $thumbrow[0];
-		$user1pic = '<img src="user/'.$user1.'/'.$user1avatar.'" alt="'.$user1.'" class="user_pic">';
-		if($user1avatar == NULL){
-			$user1pic = '<img src="images/avatardefault.jpg" alt="'.$user1.'" class="user_pic">';
+		if($user1avatar != ""){
+			$pic = 'user/'.$user1.'/'.$user1avatar.'';
+		} else {
+			$pic = 'images/avatardefault.jpg';
 		}
 		
 		$friend_requests .= '<div id="friendreq_'.$reqID.'" class="friendrequests">';
 		$friend_requests .= '<a href="user.php?u='.$user1.'">';
-		$friend_requests .= $user1pic;
+		$friend_requests .= '<div class="user_pic" style="background-image:url('.$pic.'); background-position: center center; background-repeat: no-repeat; background-size:50px; float:left; width:50px; height:50px; margin-right:8px; border-radius:100px;" ></div>';
 		$friend_requests .= '</a><div class="user_info" style="float:left; margin-left:0px; padding-left:0px;" id="user_info_'.$reqID.'">'.$user1.' is finna be your friend';
 		$friend_requests .= '</div><span class="statusDateAndDelete"></span><br><br>';
 		$friend_requests .= '<button class="statusbutts" onclick="friendReqHandler(\'accept\',\''.$reqID.'\',\''.$user1.'\',\'user_info_'.$reqID.'\')">accept</button>';
@@ -178,18 +186,6 @@ if($friend_requests == '' && $notification_list == ''){
 <title>Notifications and Friend Requests</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="style/style.css">
-<style type="text/css">
-div#notesBox{width:100%; margin:0px; padding:0px;}
-div#friendReqBox{width:100%; padding:0px;}
-div.friendrequests{min-height:70px; border-bottom:rgb(98,200,236) 1px solid; border-color:rgb(98,200,236); margin-bottom:0px;padding:7px;}
-img.user_pic{float:left; width:50px; height:50px; margin-right:8px; border-radius:100px;}
-img.user_spic{float:left; width:40px; height:40px; margin-right:8px; border-radius:100px;}
-img.user_fpic{width:35px; height:35px; margin-right:6px; border-radius:100px;}
-div.user_info{padding-left:50px; margin-top:0px; font-size:14px;word-wrap:break-word;}
-.friendrequests > button{margin:2px; float:right;}
-.seeallfinners{color:black;}
-.seeallfinners:visited{color:black;}
-</style>
 <script src="js/main.js"></script>
 <script src="js/ajax.js"></script>
 <script type="text/javascript">
@@ -215,11 +211,12 @@ function friendReqHandler(action,reqid,user1,elem){
 }
 </script>
 </head>
+
 <body>
 <div id="pageMiddle">
   <!-- START Page Content -->
-  <div id="friendReqBox" style="padding-right:0px; padding-left:0px;"><?php echo $friend_requests; ?></div>
-  <div id="notesBox" style="padding-right:0px; padding-left:0px;"><?php echo $notification_list; ?></div>
+  <div id="friendReqBox" style="padding-right:0px; padding-left:0px; width:100%; padding:0px;"><?php echo $friend_requests; ?></div>
+  <div id="notesBox" style="padding-right:0px; padding-left:0px; width:100%; margin:0px; padding:0px;"><?php echo $notification_list; ?></div>
   <div style="clear:left;"></div>
   <!-- END Page Content -->
 </div>

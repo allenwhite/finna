@@ -68,9 +68,10 @@ while ($row = mysqli_fetch_array($user_query, MYSQLI_ASSOC)) {
 	$signup = $row["signup"];
 	$lastlogin = $row["lastlogin"];
 }
-$profile_pic = '<img src="user/'.$u.'/'.$avatar.'" alt="'.$u.' is Finna">';
-if($avatar == NULL){
-	$profile_pic = '<img src="images/avatardefault.jpg" alt="'.$u.' is Finna">';
+if($avatar != ""){
+	$pic = 'user/'.$u.'/'.$avatar.'';
+} else {
+	$pic = 'images/avatardefault.jpg';
 }
 ?><?php
 $isFriend = false;
@@ -114,7 +115,7 @@ $friend_count = $query_count[0];
 if($friend_count < 1){
 	$friendsHTML = "";
 } else {
-	$max = 18;
+	$max = 36;
 	$all_friends = array();
 	// $sql = "SELECT user1 FROM friends WHERE user2='$u' AND accepted='1' ORDER BY RAND() LIMIT $max";
 	// $query = mysqli_query($db_conx, $sql);
@@ -149,7 +150,7 @@ if($friend_count < 1){
 		$orLogic .= "username='$user' OR ";
 	}
 	$orLogic = chop($orLogic, "OR ");
-	$sql = "SELECT username, avatar FROM users WHERE $orLogic ORDER BY signup ASC";
+	$sql = "SELECT username, avatar FROM users WHERE $orLogic ORDER BY signup DESC";
 	$query = mysqli_query($db_conx, $sql);
 	while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
 		$friend_username = $row["username"];
@@ -159,7 +160,10 @@ if($friend_count < 1){
 		} else {
 			$friend_pic = 'images/avatardefault.jpg';
 		}
-		$friendsHTML .= '<a href="user.php?u='.$friend_username.'"><img class="userpics" src="'.$friend_pic.'" alt="'.$friend_username.'" title="'.$friend_username.'"></a>';
+		//$friendsHTML .= '<a href="user.php?u='.$friend_username.'"><img class="userpics" src="'.$friend_pic.'" alt="'.$friend_username.'" title="'.$friend_username.'"></a>';
+		$friendsHTML .= '<a href="user.php?u='.$friend_username.'">
+							<div class="userpics" style="background-image:url('.$friend_pic.'); background-position: center center; background-repeat: no-repeat; background-size:47px; z-index:2000; width:47px; height:47px; display:inline-block;" ></div>
+						</a>';
 	}
 }
 ?>
@@ -199,7 +203,9 @@ if($friend_count < 1){
 <body>
 <div id="pageMiddle">
 	<div id="nonfeedCrap">
-		<div id="profile_pic_box"><?php echo $profile_pic; ?></div> 
+		<div id="profile_pic_box">
+			<?php echo '<div style="background-image:url('.$pic.'); background-position: center center; background-repeat: no-repeat; background-size:80px; z-index:2000; width:80px; height:80px;" ></div>'; ?>
+		</div> 
 		<div id="UserBioDiv">
 			<h2 class="UserNameDisplay"><?php echo $u; ?></h2>
 			<p class="UserBio">
@@ -210,7 +216,7 @@ if($friend_count < 1){
 		<hr />
 		<p style="margin-left:20px; height:38px; font-size:16px;"><?php echo $friend_count." friends ".$friends_view_all_link; ?>  </p>
 		<hr />
-		<p style="width:100%; margin-right:auto; margin-left:auto;" class="friends"><?php echo $friendsHTML; ?></p>
+		<div style="width:100%; margin-right:auto; margin-left:auto;" class="friends"> <?php echo $friendsHTML; ?> </div>
 	</div>
 	<hr style="margin-bottom:0px; margin-top:0px;"/>
 	<?php include_once("template_status_feed.php"); ?>
