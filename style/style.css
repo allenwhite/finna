@@ -137,7 +137,7 @@ textarea.replytext{
     padding:2%;
 }
 .imfinna{font-size:11px;}
-.replyStatus{font-size:7px; float:right;}
+.replyStatus{font-size:7px; float:right;width:40px;height:25px;}
 
 .userpics{
     width:47px; 
@@ -180,11 +180,13 @@ textarea.replytext{
 div#UserBioDiv {
 max-width: 50%;
 margin-left: 130px;
-margin-bottom: 40px;
+margin-bottom: 60px;
+/*height: 130px;*/
 }
 
 p.UserBio {
 font-size: 1em;
+height: 90px;
 }
 
 

@@ -132,11 +132,11 @@
 		    	var box = peopleBoxes[i].getElementsByClassName('user_info')[0].getElementsByTagName('b')[0];
 		    	if (typeof(box) != 'undefined' && box != null){
 		    		if(event.keyCode != 8){
-			    		if(searchtext.value.toLowerCase() != box.innerHTML.substring(0,searchtext.value.length)){
+			    		if(searchtext.value.toLowerCase() != box.innerHTML.substring(0,searchtext.value.length) && box.innerHTML.indexOf(searchtext.value.toLowerCase()) === -1){
 							peopleBoxes[i].style.display='none';
 						}    		
 		    		}else{//backspace, show all the thing we just erased
-		    			if(searchtext.value.toLowerCase() === box.innerHTML.substring(0,searchtext.value.length)){
+		    			if(searchtext.value.toLowerCase() === box.innerHTML.substring(0,searchtext.value.length) || box.innerHTML.indexOf(searchtext.value.toLowerCase()) > -1){
 							peopleBoxes[i].style.display='block';
 						}
 		    		}

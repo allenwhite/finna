@@ -101,7 +101,7 @@ if($isFriend == true){
 } else if($user_ok == true && $u != $log_username){
 	$friend_button = '<button class="statusbutts" style="float:right; margin-right:7px;" onclick="friendToggle(\'friend\',\''.$u.'\',\'friendBtn\')">Request As Friend</button>';
 }else{
-	$friend_button = '<a href="seeusers.php"><button style="float:right;padding-bottom:6px;width:60px; margin-left:7px; margin-right:7px;" class="statusbutts"><img src="images/ic_action_add_person.png" style="width:16px;" /></button></a>';
+	$friend_button = '<a href="seeusers.php"><button style="float:right;padding-bottom:6px;width:60px; margin-left:7px; margin-right:7px; " class="statusbutts"><img src="images/ic_action_add_person.png" style="width:16px;" /></button></a>';
 	$friend_button .= '<a href="editprofile.php"><button style="float:right;padding-bottom:6px;width:60px;" class="statusbutts"><img src="images/ic_action_settings.png" style="width:16px;" /></button></a>';
 }
 ?><?php
@@ -199,13 +199,13 @@ if($friend_count < 1){
 <body>
 <div id="pageMiddle">
 	<div id="nonfeedCrap">
-		<div id="profile_pic_box"><?php echo $profile_pic; ?></div> <span id="friendBtn"><?php echo $friend_button; ?></span>
+		<div id="profile_pic_box"><?php echo $profile_pic; ?></div> 
 		<div id="UserBioDiv">
 			<h2 class="UserNameDisplay"><?php echo $u; ?></h2>
 			<p class="UserBio">
 				<?php echo $bio; ?>
-
 			</p>
+			<span id="friendBtn"><?php echo $friend_button; ?></span>
 		</div>
 		<hr />
 		<p style="margin-left:20px; height:38px; font-size:16px;"><?php echo $friend_count." friends ".$friends_view_all_link; ?>  </p>

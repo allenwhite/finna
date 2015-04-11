@@ -56,6 +56,7 @@ if(isset($u)){
 			INNER JOIN
 			status
 			ON friendz.user=status.account_name
+			WHERE status.postdate >= curdate() - INTERVAL DAYOFWEEK(curdate()) + 6 DAY
 			ORDER BY postdate DESC";
 
 }
@@ -68,7 +69,7 @@ $statuslist = "";
 
 	$query = mysqli_query($db_conx, $sql);
 	$statusnumrows = mysqli_num_rows($query);
-	if($statusnumrows < 1){
+	if($statusnumrows < 1 && !isset($u)){
 		$statuslist .= '<center><br><br><p style="font-size:18px;"><b><a href="seeusers.php"><button style="margin-top:7px;" class="statusbutts">Find more friends 👥</button></a></b></p></center>';
 	}
 	while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
@@ -241,7 +242,7 @@ $statuslist = "";
 			$statuslist .= '<div id="status_'.$statusid.'" class="status_boxes">
 								<div onclick="showComments('.$statusid.')">
 									<a href="user.php?u='.$author.'">
-										<img class="userpostpics" src="'.$pic.'" alt="'.$author.'" title="'.$author.'">
+										<div class="userpostpics" style="background-image:url('.$pic.'); background-position: center center; background-repeat: no-repeat; background-size:45px;" ></div>
 									</a>
 									<div class="statusData">
 										<a class="statusAuthor" href="user.php?u='.$author.'">
@@ -254,7 +255,7 @@ $statuslist = "";
 											'.$statuslikes.'
 										</div>
 										'.$commentIcon.'
-										<a style="margin-top:-25px;" href="newReply.php?sid='.$statusid.'" class="replyStatus"><img src ="images/reply.png" alt="Finna Reply?"></a>
+										<a style="margin-top:-25px;" href="newReply.php?sid='.$statusid.'" class="replyStatus"><img style="float:right;" src ="images/reply.png" alt="Finna Reply?"></a>
 									</div>
 								</div>
 

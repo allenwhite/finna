@@ -6,30 +6,29 @@ if($user_ok != true || $log_username == "") {
 	exit();
 }
 //crop function
-function ak_img_thumb($target, $newcopy, $w, $h, $ext) {
-    //list($w_orig, $h_orig) = getimagesize($target);
-    $w_orig = ImageSX($target);
-	$h_orig = ImageSY($target);
-    $src_x = round($w_orig / 2) - round($w / 2);
-    $src_y = round($h_orig / 2) - round($h / 2);
-    $ext = strtolower($ext);
+function ak_img_resize($target, $newcopy, $w, $h, $ext) {
+    list($w_orig, $h_orig) = getimagesize($target);
+    $scale_ratio = $w_orig / $h_orig;
+    if (($w / $h) > $scale_ratio) {
+           $w = $h * $scale_ratio;
+    } else {
+           $h = $w / $scale_ratio;
+    }
     $img = "";
-    if ($ext == 1){ 
-    $img = imagecreatefromgif($target);
-    } else if($ext == 3){ 
-    $img = imagecreatefrompng($target);
+    $ext = strtolower($ext);
+    if ($ext == "gif"){ 
+      $img = imagecreatefromgif($target);
+    } else if($ext =="png"){ 
+      $img = imagecreatefrompng($target);
     } else { 
-    $img = imagecreatefromjpeg($target);
+      $img = imagecreatefromjpeg($target);
     }
     $tci = imagecreatetruecolor($w, $h);
-    imagecopyresampled($tci, $img, 0, 0, $src_x, $src_y, $w, $h, $w, $h);
-    if ($ext == "gif"){ 
-        imagegif($tci, $newcopy);
-    } else if($ext =="png"){ 
-        imagepng($tci, $newcopy);
-    } else { 
-        imagejpeg($tci, $newcopy, 84);
-    }
+    // imagecopyresampled(dst_img, src_img, dst_x, dst_y, src_x, src_y, dst_w, dst_h, src_w, src_h)
+    imagecopyresampled($tci, $img, 0, 0, 0, 0, $w, $h, $w_orig, $h_orig);
+    
+    imagejpeg($tci, $newcopy, 80);
+    
 }
 ?><?php 
 
@@ -51,11 +50,11 @@ if (isset($_FILES["img"]["name"]) && $_FILES["img"]["tmp_name"] != ""){
         exit();	
 	}
 	if($fileName != $fileExt){
-		$db_file_name = rand(100000000000,999999999999).".".$fileExt;	
+		$db_file_name = rand(100000000000,999999999999).".".$fileExt;
 	}else if($extension == 2){
-		$db_file_name = rand(100000000000,999999999999).".jpg";	
+		$db_file_name = rand(100000000000,999999999999).".jpg";
 	}else if($extension == 3){
-		$db_file_name = rand(100000000000,999999999999).".png";	
+		$db_file_name = rand(100000000000,999999999999).".png";
 	}
 
 	
@@ -105,9 +104,11 @@ $crop_measure = min($x_size, $y_size);
 ////$to_crop_array = array('x' =>round($x_size/2), 'y' => round($y_size/2), 'width' => $crop_measure, 'height'=> $crop_measure);
 ////$thumb_im = imagecrop($target_file, $to_crop_array);
 
-ak_img_thumb($target_file, $resized_file, $crop_measure, $crop_measure, $extension);
+$newImg = ak_img_thumb($target_file, $resized_file, $crop_measure, $crop_measure, $extension);
 
 ////imagejpeg($thumb_im, $resized_file, 100);
+	$moveResult = move_uploaded_file($newImg, "../user/$log_username/$db_file_name");
+	chmod("../user/$log_username/$db_file_name", 0755);
 
 
 	$sql = "UPDATE users SET avatar='$db_file_name' WHERE username='$log_username' LIMIT 1";
