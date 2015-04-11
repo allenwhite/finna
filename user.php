@@ -160,7 +160,6 @@ if($friend_count < 1){
 		} else {
 			$friend_pic = 'images/avatardefault.jpg';
 		}
-		//$friendsHTML .= '<a href="user.php?u='.$friend_username.'"><img class="userpics" src="'.$friend_pic.'" alt="'.$friend_username.'" title="'.$friend_username.'"></a>';
 		$friendsHTML .= '<a href="user.php?u='.$friend_username.'">
 							<div class="userpics" style="background-image:url('.$friend_pic.'); background-position: center center; background-repeat: no-repeat; background-size:47px; z-index:2000; width:47px; height:47px; display:inline-block;" ></div>
 						</a>';
