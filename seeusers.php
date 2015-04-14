@@ -80,7 +80,7 @@
 		}
 		$peeps .= '<div class="person" style="min-height:50px; padding:7px; border-bottom:1px solid rgb(98,200,236);">
 						<a href="user.php?u='.$username.'">'.$userpic.'</a>
-						<div class="user_info" style="margin-left:60px;"><b>'
+						<div class="user_info" style="margin-left:30px;"><b>'
 							.$username.'</b>'.$friend_button.
 						'</div>
 					</div>';
