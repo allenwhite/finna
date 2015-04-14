@@ -201,7 +201,7 @@ if($friend_count < 1){
 </head>
 <body>
 <div id="pageMiddle">
-	<div id="nonfeedCrap" style="height:100%;">
+	<div id="nonfeedCrap">
 		
 				<div> 
 				<div id="profile_pic_box" style="
@@ -215,7 +215,6 @@ if($friend_count < 1){
 											overflow-x: hidden;
 											overflow-y: hidden;
 											margin-bottom: 30px;
-											float: left;
 											">
 					<?php echo '<div style="background-image:url('.$pic.'); 
 										z-index: 2000;
@@ -237,8 +236,14 @@ if($friend_count < 1){
 			</div>
 			
 				
+				<h2 class="UserNameDisplay" style="
+											  text-align:left;
+											  position: absolute;
+											  color: #fff;
+											  text-shadow: 2px 2px #000;
+											  margin-left: 15px;">
 					<?php echo $u; ?>
-				
+				</h2>
 				
 				<div><?php echo $friend_button; ?></div>
 			</div>
@@ -248,6 +253,7 @@ if($friend_count < 1){
 		
 		<div style="width:100%; margin-right:auto; margin-left:auto;" class="friends"> <?php echo $friendsHTML; ?> </div>
 	</div>
+	<hr style="margin-bottom:0px; margin-top:0px;"/>
 	<?php include_once("template_status_feed.php"); ?>
 </div>
 </body>
