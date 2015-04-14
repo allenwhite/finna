@@ -238,7 +238,6 @@ if($friend_count < 1){
 				
 				<h2 class="UserNameDisplay" style="
 											  text-align:left;
-											  position: absolute;
 											  color: #fff;
 											  text-shadow: 2px 2px #000;
 											  margin-left: 15px;">
