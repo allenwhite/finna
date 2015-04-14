@@ -201,11 +201,9 @@ if($friend_count < 1){
 </head>
 <body>
 <div id="pageMiddle">
-	<div id="nonfeedCrap">
-		<div class="user" style="
-								background-color: rgb(98,200,236);
-		">
-			<div class="topPanel">
+	<div id="nonfeedCrap" style="height:100%;">
+		
+				<div> 
 				<div id="profile_pic_box" style="
 											margin-right: auto;
 											margin-left: 15px;
@@ -232,30 +230,17 @@ if($friend_count < 1){
 										height:80px;" ></div>'; 
 					?>
 				</div> 
-				<div class="UserBio" style="
-										font-size: 1em;
-										min-height: 60px;
-										padding-top: 20px;
-										margin-left: 120px;
-										color: #fff;
-										text-shadow: 1px 1px #000;">
-					<?php echo $bio; ?>
-				</div>
 			</div>
-			<div class="bottomPanel" style="
-										margin-top: -10px;
-										height:52px;">
 				
-				<h2 class="UserNameDisplay" style="
-											  text-align:left;
-											  position: absolute;
-											  color: #fff;
-											  text-shadow: 2px 2px #000;
-											  margin-left: 15px;">
+			<?php echo $bio; ?>
+				
+			</div>
+			
+				
 					<?php echo $u; ?>
-				</h2>
 				
-				<span id="friendBtn"><?php echo $friend_button; ?></span>
+				
+				<div><?php echo $friend_button; ?></div>
 			</div>
 		</div>
 		
@@ -263,7 +248,6 @@ if($friend_count < 1){
 		
 		<div style="width:100%; margin-right:auto; margin-left:auto;" class="friends"> <?php echo $friendsHTML; ?> </div>
 	</div>
-	<hr style="margin-bottom:0px; margin-top:0px;"/>
 	<?php include_once("template_status_feed.php"); ?>
 </div>
 </body>
