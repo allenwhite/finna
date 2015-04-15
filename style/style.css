@@ -190,18 +190,7 @@ height: 90px;
 }
 
 
-div#profile_pic_box{
-    margin-right: auto;
-     margin-left: 5%;
-     margin-top:20px; 
-     border-radius: 100px; 
-     border:rgb(98,200,236) 1px solid;
-     width:80px; height:80px;
-     overflow-x:hidden;
-     overflow-y:hidden;
-     margin-bottom: 30px;
-     float: left;
-}
+
 
 div#profile_pic_box > img{z-index:2000; width:80px; height:80px;}
 

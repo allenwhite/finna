@@ -189,11 +189,60 @@ function login(u,p){
         ajax.send("u="+u+"&p="+p);
 	}
 }
-</script>
+</script><style type="text/css">
+
+/*signup*/
+
+body{
+	background-color: rgb(98, 200, 236);
+	color: #fcfaff;
+
+}
+
+h3 {
+	text-shadow:black 0px 1px;
+}
+#signupform{
+    margin-top:8px;    
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow:black 0px 1px;
+
+}
+#signupform > div {
+    margin-top: 7px;
+    margin-bottom: 7px;    
+}
+#signupform > input {
+    padding: 7px;
+    background: #F3F9DD;
+    font-size: 16px;
+    border-radius:14px;
+    border:none;
+    border-color: transparent;
+    text-align: center;
+    box-shadow: 0px 1px;
+}
+#signupform > input:focus {
+    outline:0px;
+}
+
+#signupform > button {
+    padding: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 15px;
+    background: #fcfaff;
+    border:none;
+    color: rgb(98,200,236);
+    border-radius:7px;
+    box-shadow:black 0px 1px;
+}
+</style>
 </head>
-<body style="background:url(https://secure.static.tumblr.com/ecb2a659f3dacc1907eb9a0ed75eb5a1/kcebonh/sQRn8bmxs/tumblr_static_wrbkf.jpg),black;
-			background-position: 700px;
-			background-size: 400%; color:white;">
+<body>
 <div id="pageMiddle">
 <div id="pageMiddle">
   <h3 style="margin-left:5%; margin-top:20px; margin-bottom:10px; font-size:200%; text-align:center; width:90%;">Sign Up Here</h3>
@@ -207,12 +256,12 @@ function login(u,p){
     <input id="pass1" onfocus="emptyElement('status')" type="password" maxlength="16">
     <div><b>Confirm Password:</b></div>
     <input id="pass2" onfocus="emptyElement('status')" type="password" maxlength="16">
-    <br /><br />
-    <button id="signupbtn" class="statusbutts" onclick="signup()" style="margin:0px;" >Create Account</button>
-    <br/>
+    <br><br>
+    <button id="signupbtn" class="statusbutts" onclick="signup()" style="margin:0px;">Create Account</button>
+    <br>
     <span id="status"></span>
     <div><a style="color:white;" href="login.php">Already have an account?</a></div>
   </form>
 </div>
-</body>
-</html>
+
+</div></body></html>
