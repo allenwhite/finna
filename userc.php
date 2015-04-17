@@ -200,18 +200,19 @@ if($friend_count < 1){
 </script>
 </head>
 <body>
+	<div id="UserBioPage">
 <div id="pageMiddle">
 	<div id="nonfeedCrap">
 		
 				<div> 
 				<div id="profile_pic_box" style="
 											margin-right: auto;
-											margin-left: 15px;
+											margin-left: auto;
 											margin-top: 20px;
 											border-radius: 100px;
 											border: 1px solid white;
-											width: 80px;
-											height: 80px;
+											width: 150px;
+											height: 150px;
 											overflow-x: hidden;
 											overflow-y: hidden;
 											margin-bottom: 30px;
@@ -232,28 +233,32 @@ if($friend_count < 1){
 			</div>
 				
 			<?php echo $bio; ?>
+
+			<h2 class="UserNameDisplay" style="
+											  text-align:center;
+											  color: #fff;
+											  text-shadow: 2px 2px #000;
+											  ">
+
+					<?php echo $u; ?>
+				</h2>
 				
 			</div>
 			
 				
-				<h2 class="UserNameDisplay" style="
-											  text-align:left;
-											  color: #fff;
-											  text-shadow: 2px 2px #000;
-											  margin-left: 15px;">
-					<?php echo $u; ?>
-				</h2>
+				
 				
 				<div><?php echo $friend_button; ?></div>
 			</div>
 		</div>
 		
-		<p style="margin-left:20px; font-size:16px;"><?php echo $friend_count." friends ".$friends_view_all_link; ?>  </p>
+		<p style="margin-left:auto; margin-right: auto; font-size:16px;"><?php echo $friend_count." friends ".$friends_view_all_link; ?>  </p>
 		
 		<div style="width:100%; margin-right:auto; margin-left:auto;" class="friends"> <?php echo $friendsHTML; ?> </div>
 	</div>
 	<hr style="margin-bottom:0px; margin-top:0px;"/>
 	<?php include_once("template_status_feed.php"); ?>
+</div>
 </div>
 </body>
 </html>

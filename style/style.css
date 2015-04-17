@@ -40,7 +40,10 @@ body{
     margin-right: auto;
     margin-left: auto;
     margin-top: 0px;
+    background-color: rgb(98,200,236);
 }
+
+
 /*Everything besides the picture in status*/
 .statusData{
     margin-left:60px;
