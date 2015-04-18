@@ -42,39 +42,12 @@ if($user_ok != true){
 	<script src="js/main.js"></script>
 	<script src="js/ajax.js"></script>
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<style>
-
-		.whosFinna {
-			height: 30px;
-		}
-
-		.whosFinnaMiddle{
-			height:28px;
-			margin-top: -26px;
-			float: left;
-			margin-left: 8px;
-		}
-		.whosFinna>div {
-			height:18px;
-			width: 18px;
-			border:rgb(98,200,236) 1px solid;
-			margin-left: 3px;
-			
-		}
-		.whosFinnaMiddle>div {
-			height:22px;
-			width: 22px;
-			border:rgb(98,200,236) 1px solid;
-			
-		}
-
-	</style>
 </head>
 <body>
 	<div id="pageMiddle">
 		<?php
 			if($user_ok == true){
-				include_once("template_status_feed.php");
+				include_once("template_status_feed2.php");
 			}
 		?>
 	</div>

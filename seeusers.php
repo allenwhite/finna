@@ -24,6 +24,15 @@
 				users
 				ON likers.account_name=users.username
 				ORDER BY username ASC";
+	} else if(isset($_GET["dmosid"])){
+		$osid = preg_replace('#[^a-z0-9]#i', '', $_GET['dmosid']);
+		$sql = "SELECT users.username, users.avatar, users.signup
+				FROM
+				(SELECT username FROM directMessages WHERE osid='$osid' AND username != '$log_username') as dmusers 
+				INNER JOIN
+				users
+				ON dmusers.username=users.username
+				ORDER BY username ASC";
 	}else {
 		$sql = "SELECT username, avatar FROM users ORDER BY username ASC";
 

@@ -182,68 +182,8 @@ $statuslist = "";
 			}
 		
 			$statuslikes .= "</span>";
-//////////////////////////////////////////////////////////////////
-			$invitees = '';
-			if ($row["type"] == 'c') {
-				$invitees = '';
-				$query_dms = mysqli_query($db_conx, "SELECT username FROM directMessages WHERE osid='$statusid'");
-				if($query_dms){
-					$dmsnumrows = mysqli_num_rows($query_dms);	
-				}else{
-					$dmsnumrows = 0;
-				}
-				$userList;
-				if($dmsnumrows > 0){
-					
-					$invitees .= "<a href='seeusers.php?dmosid=$statusid'><div style='	width: 56px;
-																						height: 48px;
-																						float: left;
-																						margin-left: -55px;
-																						margin-top: 36px;'>";
-					$finnaMiddle = '<div class="whosFinnaMiddle">';
-					$finnaOutside = '<div class="whosFinna">';
-
-					$d = 0;
-			        while ($rowdm = mysqli_fetch_array($query_dms, MYSQLI_ASSOC)) {
-						if($d < 3){
-							$dmuser = $rowdm["username"];
-							if($dmuser != $log_username && $dmuser != $author){
-								//get avatar
-								$dmavatarsql = "SELECT avatar FROM users WHERE username='$dmuser' LIMIT 1";
-								$dmavatarquery = mysqli_query($db_conx, $dmavatarsql);
-								$dmavatarrow = mysqli_fetch_array($dmavatarquery, MYSQLI_ASSOC);
-								$dmavatar = $dmavatarrow["avatar"];
-
-								if($dmavatar != ""){
-									$dmpic = 'user/'.$dmuser.'/'.$dmavatar.'';
-								} else {
-									$dmpic = 'images/avatardefault.jpg';
-								}
-
-				        		if($d > 1){
-				        			$finnaMiddle .= '<div class="userpostpics" style="background-image:url('.$dmpic.'); background-color: white; background-position: center center; background-repeat: no-repeat; background-size:22px;" ></div>';
-				        		}else{
-				        			$finnaOutside .= '<div class="userpostpics" style="background-image:url('.$dmpic.'); background-color: white; background-position: center center; background-repeat: no-repeat; background-size:18px;" ></div>';
-				        		}	
-				        		$d++;
-							}
-						}else{
-							break;
-						}
-
-		        		
-					}
-
-					$finnaMiddle .= '</div>';
-					$finnaOutside .= '</div>';
-
-					$invitees .= $finnaOutside.$finnaMiddle.'</div></a>';
-				}
 
 
-				
-			}
-			
 
 			// GATHER UP ANY STATUS REPLIES
 			$status_replies = "";
@@ -304,9 +244,6 @@ $statuslist = "";
 									<a href="user.php?u='.$author.'">
 										<div class="userpostpics" style="background-image:url('.$pic.'); background-position: center center; background-repeat: no-repeat; background-size:45px;" ></div>
 									</a>
-
-									'.$invitees.'
-
 									<div class="statusData">
 										<b>
 											'.$author.'
