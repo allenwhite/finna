@@ -38,7 +38,7 @@
 
 		$peeps .= '<div class="person" style="height:50px; padding:7px; border-bottom:1px solid rgb(98,200,236);">
 						<div class="user_info" style="margin-left:30px; font-size:16px; color: rgb(98,200,236);">
-							<input onkeyup="search()" type="text" id="searchbox" placeholder="Search..." style="width:100%; height:100%; border:none; outline:none;">
+							<input onkeyup="search()" type="text" id="searchbox" placeholder="Search..." style="width:100%; height:100%; border:none; outline:none; font-size:18px;">
 						</div>
 					</div>';
 
@@ -82,13 +82,25 @@
 		}
 		
 		
+		// $avatar = $row["avatar"];
+		// $userpic = '<img src="user/'.$username.'/'.$avatar.'" alt="'.$username.'" style="float:left; width:50px; height:50px; border-radius:100px;" class="user_pic">';
+		// if($avatar == NULL){
+		// 	$userpic = '<img style="float:left; width:50px; height:50px; border-radius:100px;" src="images/avatardefault.jpg" alt="'.$username.'" class="user_pic">';
+		// }
+
+
 		$avatar = $row["avatar"];
-		$userpic = '<img src="user/'.$username.'/'.$avatar.'" alt="'.$username.'" style="float:left; width:50px; height:50px; border-radius:100px;" class="user_pic">';
-		if($avatar == NULL){
-			$userpic = '<img style="float:left; width:50px; height:50px; border-radius:100px;" src="images/avatardefault.jpg" alt="'.$username.'" class="user_pic">';
+
+		if($avatar != ""){
+			$userpic = 'user/'.$username.'/'.$avatar.'';
+		} else {
+			$userpic = 'images/avatardefault.jpg';
 		}
+
+		$userpictag = '<div class="user_pic" style="background-image:url('.$userpic.'); background-color: white; background-position: center center; background-repeat: no-repeat; background-size:50px; float:left; width:50px; height:50px; border-radius:100px;" ></div>';
+
 		$peeps .= '<div class="person" style="min-height:50px; padding:7px; border-bottom:1px solid rgb(98,200,236);">
-						<a href="user.php?u='.$username.'">'.$userpic.'</a>
+						<a href="user.php?u='.$username.'">'.$userpictag.'</a>
 						<div class="user_info" style="margin-left:30px;"><b>'
 							.$username.'</b>'.$friend_button.
 						'</div>

@@ -98,12 +98,12 @@ if($biostring != NULL){
 $friend_button = '';
 // LOGIC FOR FRIEND BUTTON
 if($isFriend == true){
-	$friend_button = '<button class="statusbutts" style="float:right; margin-right:7px;" onclick="friendToggle(\'unfriend\',\''.$u.'\',\'friendBtn\')">Unfriend</button>';
+	$friend_button = '<button class="statusbutts" style="border:1px solid white; float:right; margin-right:20px;" onclick="friendToggle(\'unfriend\',\''.$u.'\',\'friendBtn\')">Unfriend</button>';
 } else if($user_ok == true && $u != $log_username){
-	$friend_button = '<button class="statusbutts" style="float:right; margin-right:7px;" onclick="friendToggle(\'friend\',\''.$u.'\',\'friendBtn\')">Request As Friend</button>';
+	$friend_button = '<button class="statusbutts" style="border:1px solid white; float:right; margin-right:20px;" onclick="friendToggle(\'friend\',\''.$u.'\',\'friendBtn\')">Request As Friend</button>';
 }else{
-	$friend_button = '<a href="seeusers.php"><button style="float:right;padding-bottom:6px;width:60px; margin-left:7px; margin-right:7px; " class="statusbutts"><img src="images/ic_action_add_person.png" style="width:16px;" /></button></a>';
-	$friend_button .= '<a href="editprofile.php"><button style="float:right;padding-bottom:6px;width:60px;" class="statusbutts"><img src="images/ic_action_settings.png" style="width:16px;" /></button></a>';
+	$friend_button = '<a href="seeusers.php"><button style="border:1px solid white; float:right;padding-bottom:6px;width:60px; margin-left:7px; margin-right:20px; " class="statusbutts"><img src="images/ic_action_add_person.png" style="width:16px;" /></button></a>';
+	$friend_button .= '<a href="editprofile.php"><button style="border:1px solid white; float:right;padding-bottom:6px;width:60px;" class="statusbutts"><img src="images/ic_action_settings.png" style="width:16px;" /></button></a>';
 }
 ?><?php
 $friendsHTML = '';
@@ -142,28 +142,9 @@ if($friend_count < 1){
 	if($friendArrayCount > $max){
 		array_splice($all_friends, $max);
 	}
-	if($friend_count > $max){
-		$friends_view_all_link = '<a href="seeusers.php?u='.$u.'">view all</a>';
-	}
-	$orLogic = '';
-	foreach($all_friends as $key => $user){
-		$orLogic .= "username='$user' OR ";
-	}
-	$orLogic = chop($orLogic, "OR ");
-	$sql = "SELECT username, avatar FROM users WHERE $orLogic ORDER BY signup DESC";
-	$query = mysqli_query($db_conx, $sql);
-	while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-		$friend_username = $row["username"];
-		$friend_avatar = $row["avatar"];
-		if($friend_avatar != ""){
-			$friend_pic = 'user/'.$friend_username.'/'.$friend_avatar.'';
-		} else {
-			$friend_pic = 'images/avatardefault.jpg';
-		}
-		$friendsHTML .= '<a href="user.php?u='.$friend_username.'">
-							<div class="userpics" style="background-image:url('.$friend_pic.'); background-position: center center; background-repeat: no-repeat; background-size:47px; z-index:2000; width:47px; height:47px; display:inline-block;" ></div>
-						</a>';
-	}
+	
+	$friends_view_all_link = '<a href="seeusers.php?u='.$u.'"><i>view all</i></a>';
+	
 }
 ?>
 <!DOCTYPE html>
@@ -186,7 +167,7 @@ if($friend_count < 1){
 				if(ajax.responseText == "friend_request_sent"){
 					_(elem).innerHTML = 'Friend Request Sent!';
 				} else if(ajax.responseText == "unfriend_ok"){
-					_(elem).innerHTML = '<button class="statusbutts" style="float:right; margin-right:7px;" onclick="friendToggle(\'friend\',\'<?php echo $u; ?>\',\'friendBtn\')">Request As Friend</button>';
+					_(elem).innerHTML = '<button class="statusbutts" style="border:1px solid white; float:right; margin-right:7px;" onclick="friendToggle(\'friend\',\'<?php echo $u; ?>\',\'friendBtn\')">Request As Friend</button>';
 				} else {
 					// alert(ajax.responseText);
 					// Android.showToast(ajax.responseText);
@@ -201,21 +182,30 @@ if($friend_count < 1){
 </head>
 <body>
 <div id="pageMiddle">
-	<div id="nonfeedCrap">
-		<div id="profile_pic_box">
-			<?php echo '<div style="background-image:url('.$pic.'); background-position: center center; background-repeat: no-repeat; background-size:80px; z-index:2000; width:80px; height:80px;" ></div>'; ?>
+	<div id="nonfeedCrap" style="background:rgb(98,200,236); min-height:350px;">
+		<div id="profile_pic_box" style="padding-top:30px;">
+			<?php echo '<div style="background:white;
+									background-image:url('.$pic.'); 
+									background-position: center center; 
+									background-repeat: no-repeat; 
+									background-size:120px; 
+									z-index:2000; 
+									width:120px; 
+									height:120px; 
+									border-radius:120px;
+									border:1px solid white;
+									margin-left:auto;
+									margin-right:auto;
+									" ></div>'; ?>
 		</div> 
-		<div id="UserBioDiv">
-			<h2 class="UserNameDisplay"><?php echo $u; ?></h2>
-			<p class="UserBio">
-				<?php echo $bio; ?>
-			</p>
-			<span id="friendBtn"><?php echo $friend_button; ?></span>
-		</div>
-		<hr />
-		<p style="margin-left:20px; height:38px; font-size:16px;"><?php echo $friend_count." friends ".$friends_view_all_link; ?>  </p>
-		<hr />
-		<div style="width:100%; margin-right:auto; margin-left:auto;" class="friends"> <?php echo $friendsHTML; ?> </div>
+		
+		<h1 class="UserNameDisplay" style="text-align:center; margin-top:30px; color:white; text-shadow: 0px 1px black; margin-bottom:30px;"><?php echo $u; ?></h1>
+		<p style="text-align:center; color:white; padding-left:20px; padding-right:20px; padding-bottom:20px; font-size:120%; font-weight:bold;">
+			<?php echo $bio; ?>
+		</p>
+		<span id="friendBtn"><?php echo $friend_button; ?></span>
+
+		<p style="padding:20px; padding-top:0px; margin-bottom:0px; height:38px; font-size:16px; color:white; "><?php echo $friend_count." friends ".$friends_view_all_link; ?>  </p>
 	</div>
 	<hr style="margin-bottom:0px; margin-top:0px;"/>
 	<?php include_once("template_status_feed.php"); ?>

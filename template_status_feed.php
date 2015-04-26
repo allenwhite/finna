@@ -220,7 +220,7 @@ $statuslist = "";
 									$dmpic = 'images/avatardefault.jpg';
 								}
 
-				        		if($d > 1){
+				        		if($d == 1){
 				        			$finnaMiddle .= '<div class="userpostpics" style="background-image:url('.$dmpic.'); background-color: white; background-position: center center; background-repeat: no-repeat; background-size:22px;" ></div>';
 				        		}else{
 				        			$finnaOutside .= '<div class="userpostpics" style="background-image:url('.$dmpic.'); background-color: white; background-position: center center; background-repeat: no-repeat; background-size:18px;" ></div>';
