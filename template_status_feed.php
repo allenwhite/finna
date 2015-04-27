@@ -110,7 +110,7 @@ $statuslist = "";
 			$location = stripslashes($location);
 			$location = trim($location);
 
-			$data = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[A-Z0-9+&@#\/%=~_|]/i', '<a href="\0" target="blank">\0</a>', $data);
+			$data = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[A-Z0-9+&@#\/%=~_|]/i', '<a href="\0">\0</a>', $data);
 
 			$avatarsql = "SELECT avatar FROM users WHERE username='$author' LIMIT 1";
 			$avatarquery = mysqli_query($db_conx, $avatarsql);
